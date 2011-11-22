@@ -1,0 +1,7 @@
+base referer
+rect $class_doxygen_output.html 5,112 117,141
+rect $class_doxygen_output_enumeration.html 167,5 351,35
+rect $class_doxygen_output_file.html 192,59 325,88
+rect $class_doxygen_output_function.html 177,112 340,141
+rect $class_doxygen_output_struct.html 185,165 332,195
+rect $class_doxygen_output_variable.html 180,219 337,248

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Cylinder_siham: C:/Users/siham/Desktop/Zylinder/CylinderLibrary/src/circle.h-Dateireferenz</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.5 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Klassen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_C_3A_2FUsers_2F.html">Users</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2F.html">siham</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2F.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2F.html">Zylinder</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2FCylinderLibrary_2F.html">CylinderLibrary</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2FCylinderLibrary_2Fsrc_2F.html">src</a></div>
+<h1>circle.h-Dateireferenz</h1>
+<p>
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enthält:<p><center><img src="circle_8h__dep__incl.png" border="0" usemap="#C:/Users/siham/Desktop/Zylinder/CylinderLibrary/src/circle.hdep_map" alt=""></center>
+<map name="C:/Users/siham/Desktop/Zylinder/CylinderLibrary/src/circle.hdep_map">
+<area href="circle_8c-source.html" shape="rect" coords="469,5,840,35" alt="">
+<area href="cylinder_8c-source.html" shape="rect" coords="463,59,847,88" alt="">
+<area href="cylinderLibrayTester_8c-source.html" shape="rect" coords="425,112,884,141" alt="">
+</map>
+
+<p>
+<a href="circle_8h-source.html">gehe zum Quellcode dieser Datei</a><table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Funktionen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="circle_8h.html#ef6c48edf38069b2b3684a790d806b92">circleArea</a> (double radius)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="circle_8h.html#e48234f11885e6a380e29e50f272c7b4">circumference</a> (double radius)</td></tr>
+
+<tr><td colspan="2"><br><h2>Variablen</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">static const double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="circle_8h.html#3a372b04b95323b72c2b2f9a5d24e67b">PI</a> = 3.14</td></tr>
+
+</table>
+<hr><h2>Dokumentation der Funktionen</h2>
+<a class="anchor" name="ef6c48edf38069b2b3684a790d806b92"></a><!-- doxytag: member="circle.h::circleArea" ref="ef6c48edf38069b2b3684a790d806b92" args="(double radius)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">double circleArea           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">double&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>radius</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="circle_8c-source.html#l00004">4</a> der Datei <a class="el" href="circle_8c-source.html">circle.c</a>.
+<p>
+Benutzt <a class="el" href="circle_8h-source.html#l00005">PI</a>.
+<p>
+Wird benutzt von <a class="el" href="cylinder_8c-source.html#l00005">cylinderCapacity()</a> und <a class="el" href="cylinder_8c-source.html#l00012">cylinderSurface()</a>.<div class="fragment"><pre class="fragment"><a name="l00005"></a>00005 {
+<a name="l00006"></a>00006         <span class="keywordflow">if</span> (radius &lt; 0) { <span class="keywordflow">return</span> -1; }
+<a name="l00007"></a>00007         <span class="keywordflow">return</span> <a class="code" href="circle_8h.html#3a372b04b95323b72c2b2f9a5d24e67b">PI</a> * radius * radius;
+<a name="l00008"></a>00008 }
+</pre></div>
+<p>
+    </td>
+  </tr>
+</table>
+<a class="anchor" name="e48234f11885e6a380e29e50f272c7b4"></a><!-- doxytag: member="circle.h::circumference" ref="e48234f11885e6a380e29e50f272c7b4" args="(double radius)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">double circumference           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">double&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>radius</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="circle_8c-source.html#l00010">10</a> der Datei <a class="el" href="circle_8c-source.html">circle.c</a>.
+<p>
+Benutzt <a class="el" href="circle_8h-source.html#l00005">PI</a>.
+<p>
+Wird benutzt von <a class="el" href="cylinder_8c-source.html#l00019">cylinderLateralArea()</a>.<div class="fragment"><pre class="fragment"><a name="l00011"></a>00011 {
+<a name="l00012"></a>00012         <span class="keywordflow">if</span> (radius &lt; 0) { <span class="keywordflow">return</span> -1; }
+<a name="l00013"></a>00013         <span class="keywordflow">return</span> 2 * <a class="code" href="circle_8h.html#3a372b04b95323b72c2b2f9a5d24e67b">PI</a> * radius;
+<a name="l00014"></a>00014 }
+</pre></div>
+<p>
+    </td>
+  </tr>
+</table>
+<hr><h2>Variablen-Dokumentation</h2>
+<a class="anchor" name="3a372b04b95323b72c2b2f9a5d24e67b"></a><!-- doxytag: member="circle.h::PI" ref="3a372b04b95323b72c2b2f9a5d24e67b" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">const double <a class="el" href="circle_8h.html#3a372b04b95323b72c2b2f9a5d24e67b">PI</a> = 3.14<code> [static]</code>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+
+<p>
+Definiert in Zeile <a class="el" href="circle_8h-source.html#l00005">5</a> der Datei <a class="el" href="circle_8h-source.html">circle.h</a>.
+<p>
+Wird benutzt von <a class="el" href="circle_8c-source.html#l00004">circleArea()</a> und <a class="el" href="circle_8c-source.html#l00010">circumference()</a>.    </td>
+  </tr>
+</table>
+<hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jan 12 22:50:37 2011 für Cylinder_siham von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.5 </small></address>
+</body>
+</html>

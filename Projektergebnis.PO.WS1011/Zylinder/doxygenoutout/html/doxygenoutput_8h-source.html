@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>DoxygenOutPut: C:/Users/siham/Desktop/Zylinder/doxygenoutout/doxygenoutput.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.5 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Klassen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_C_3A_2FUsers_2F.html">Users</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2F.html">siham</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2F.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2F.html">Zylinder</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2Fdoxygenoutout_2F.html">doxygenoutout</a></div>
+<h1>doxygenoutput.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> *  doxygenoutput.h</span>
+<a name="l00003"></a>00003 <span class="comment"> *</span>
+<a name="l00004"></a>00004 <span class="comment"> *  Created by Siham El Hadri privat on 1/6/11.</span>
+<a name="l00005"></a>00005 <span class="comment"> *  Copyright 2011 MPI-SWS. All rights reserved.</span>
+<a name="l00006"></a>00006 <span class="comment"> *</span>
+<a name="l00007"></a>00007 <span class="comment"> */</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;time.h&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00011"></a>00011 
+<a name="l00012"></a><a class="code" href="class_doxygen_output.html">00012</a> <span class="keyword">class </span><a class="code" href="class_doxygen_output.html">DoxygenOutput</a> {
+<a name="l00013"></a>00013 <span class="keyword">public</span>:
+<a name="l00014"></a><a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">00014</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>;
+<a name="l00015"></a><a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">00015</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>;
+<a name="l00016"></a><a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">00016</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>;
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="class_doxygen_output.html#4ad9fe481e706ad589aa146a0b476885">00018</a>         <a class="code" href="class_doxygen_output.html#4ad9fe481e706ad589aa146a0b476885">DoxygenOutput</a>() <span class="comment">//Constructor </span>
+<a name="l00019"></a>00019         { 
+<a name="l00020"></a>00020                 <a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>=<span class="stringliteral">""</span>;
+<a name="l00021"></a>00021                 <a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>=<span class="stringliteral">""</span>;
+<a name="l00022"></a>00022                 <a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>=<span class="stringliteral">""</span>;
+<a name="l00023"></a>00023         };
+<a name="l00024"></a>00024         
+<a name="l00025"></a><a class="code" href="class_doxygen_output.html#7857a9bd4f9ac6865939ba61f64673da">00025</a>         <a class="code" href="class_doxygen_output.html#7857a9bd4f9ac6865939ba61f64673da">~DoxygenOutput</a>() <span class="comment">//Destructor</span>
+<a name="l00026"></a>00026         { }
+<a name="l00027"></a>00027         
+<a name="l00028"></a>00028         
+<a name="l00029"></a><a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">00029</a>         <span class="keywordtype">int</span> <a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">generateComment</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> text[]){
+<a name="l00030"></a>00030                 printf(<span class="stringliteral">"/*! \n"</span>);
+<a name="l00031"></a>00031                 printf(<span class="stringliteral">"%s\n"</span>,text);
+<a name="l00032"></a>00032                 printf(<span class="stringliteral">"*/\n"</span>);
+<a name="l00033"></a>00033                 <span class="keywordflow">return</span> 0;
+<a name="l00034"></a>00034         }
+<a name="l00035"></a>00035 };
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="class_doxygen_output_function.html">00037</a> <span class="keyword">class </span><a class="code" href="class_doxygen_output_function.html">DoxygenOutputFunction</a> : <span class="keyword">public</span> <a class="code" href="class_doxygen_output.html">DoxygenOutput</a>{
+<a name="l00038"></a>00038 <span class="keyword">public</span>:
+<a name="l00039"></a><a class="code" href="class_doxygen_output_function.html#26e2353adefd4a498e46d9d8ac09a78a">00039</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="class_doxygen_output_function.html#26e2353adefd4a498e46d9d8ac09a78a">returnvalue</a>;
+<a name="l00040"></a>00040         <span class="comment">//hoechstens 10 params zulassen</span>
+<a name="l00041"></a><a class="code" href="class_doxygen_output_function.html#65f7e9f880d800fcfc0a31a2c8ba9c2b">00041</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="class_doxygen_output_function.html#65f7e9f880d800fcfc0a31a2c8ba9c2b">params</a>[10];
+<a name="l00042"></a>00042         
+<a name="l00043"></a><a class="code" href="class_doxygen_output_function.html#0185233fca3db8d1d70ad454ec84f102">00043</a>         <a class="code" href="class_doxygen_output_function.html#0185233fca3db8d1d70ad454ec84f102">DoxygenOutputFunction</a>() <span class="comment">//Constructor </span>
+<a name="l00044"></a>00044         { 
+<a name="l00045"></a>00045                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;10;i++){
+<a name="l00046"></a>00046                         <a class="code" href="class_doxygen_output_function.html#65f7e9f880d800fcfc0a31a2c8ba9c2b">params</a>[i]=<span class="stringliteral">""</span>;
+<a name="l00047"></a>00047                 }
+<a name="l00048"></a>00048         };
+<a name="l00049"></a>00049         
+<a name="l00050"></a><a class="code" href="class_doxygen_output_function.html#d680823798c47a29c61c41c1c85e517a">00050</a>         ~<a class="code" href="class_doxygen_output_function.html#0185233fca3db8d1d70ad454ec84f102">DoxygenOutputFunction</a>() <span class="comment">//Destructor</span>
+<a name="l00051"></a>00051         { 
+<a name="l00052"></a>00052         } ;
+<a name="l00053"></a>00053         
+<a name="l00054"></a><a class="code" href="class_doxygen_output_function.html#b2ded7e44d321028690fe3524fc02c51">00054</a>         <span class="keywordtype">int</span> <a class="code" href="class_doxygen_output_function.html#b2ded7e44d321028690fe3524fc02c51">generateCommentForFunction</a>(<a class="code" href="class_doxygen_output_function.html">DoxygenOutputFunction</a> output) {
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056                 <span class="keywordtype">char</span> text[1000]=<span class="stringliteral">""</span>;
+<a name="l00057"></a>00057                 strcat(text,<span class="stringliteral">"\t\\fn "</span>);
+<a name="l00058"></a>00058                 strcat(text,output.<a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>);
+<a name="l00059"></a>00059                 strcat(text,<span class="stringliteral">"\n\t\\brief "</span>);
+<a name="l00060"></a>00060                 strcat(text,output.<a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>);
+<a name="l00061"></a>00061                 strcat(text,<span class="stringliteral">"\n\n\t"</span>);
+<a name="l00062"></a>00062                 strcat(text,output.<a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>);
+<a name="l00063"></a>00063                 strcat(text,<span class="stringliteral">"\n"</span>);
+<a name="l00064"></a>00064                 
+<a name="l00065"></a>00065                 <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;10;i++){
+<a name="l00066"></a>00066                         <span class="keywordflow">if</span> (strlen(output.<a class="code" href="class_doxygen_output_function.html#65f7e9f880d800fcfc0a31a2c8ba9c2b">params</a>[i])) {
+<a name="l00067"></a>00067                         strcat(text,<span class="stringliteral">"\n\t\\param "</span>);
+<a name="l00068"></a>00068                         strcat(text,output.<a class="code" href="class_doxygen_output_function.html#65f7e9f880d800fcfc0a31a2c8ba9c2b">params</a>[i]);
+<a name="l00069"></a>00069                         }
+<a name="l00070"></a>00070                 }
+<a name="l00071"></a>00071                 
+<a name="l00072"></a>00072                 strcat(text,<span class="stringliteral">"\n\t\\return "</span>);
+<a name="l00073"></a>00073                 strcat(text,output.returnvalue);
+<a name="l00074"></a>00074                 
+<a name="l00075"></a>00075                 <a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">generateComment</a>(text);
+<a name="l00076"></a>00076                 <span class="keywordflow">return</span> 0;
+<a name="l00077"></a>00077         }
+<a name="l00078"></a>00078 };
+<a name="l00079"></a>00079 
+<a name="l00080"></a><a class="code" href="class_doxygen_output_file.html">00080</a> <span class="keyword">class </span><a class="code" href="class_doxygen_output_file.html">DoxygenOutputFile</a> : <span class="keyword">public</span> <a class="code" href="class_doxygen_output.html">DoxygenOutput</a>{
+<a name="l00081"></a>00081 <span class="keyword">public</span>:
+<a name="l00082"></a><a class="code" href="class_doxygen_output_file.html#02bd92faa38aaa6cc0ea75e59937a1ef">00082</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="class_doxygen_output_file.html#02bd92faa38aaa6cc0ea75e59937a1ef">author</a>;
+<a name="l00083"></a><a class="code" href="class_doxygen_output_file.html#5fc732311905cb27e82d67f4f6511f7f">00083</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="class_doxygen_output_file.html#5fc732311905cb27e82d67f4f6511f7f">date</a>;
+<a name="l00084"></a><a class="code" href="class_doxygen_output_file.html#718779752b851ac0dc6281a8c8d77e7e">00084</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="class_doxygen_output_file.html#718779752b851ac0dc6281a8c8d77e7e">license</a>;
+<a name="l00085"></a><a class="code" href="class_doxygen_output_file.html#b0da275520918e23dd615e2a747528f1">00085</a>         <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code" href="class_doxygen_output_file.html#b0da275520918e23dd615e2a747528f1">build</a>;
+<a name="l00086"></a>00086         
+<a name="l00087"></a><a class="code" href="class_doxygen_output_file.html#43d1137b25ed2446c35176024cc9ed72">00087</a>         <a class="code" href="class_doxygen_output_file.html#43d1137b25ed2446c35176024cc9ed72">DoxygenOutputFile</a>() <span class="comment">//Constructor </span>
+<a name="l00088"></a>00088         { 
+<a name="l00089"></a>00089                 time_t t;
+<a name="l00090"></a>00090                 <span class="keyword">struct </span>tm *ts;
+<a name="l00091"></a>00091                 
+<a name="l00092"></a>00092                 t = time(NULL);
+<a name="l00093"></a>00093                 ts = localtime(&amp;t);
+<a name="l00094"></a>00094                 <a class="code" href="class_doxygen_output_file.html#5fc732311905cb27e82d67f4f6511f7f">date</a>=asctime(ts);
+<a name="l00095"></a>00095                 
+<a name="l00096"></a>00096                 <a class="code" href="class_doxygen_output_file.html#02bd92faa38aaa6cc0ea75e59937a1ef">author</a>=<span class="stringliteral">""</span>;
+<a name="l00097"></a>00097                 <a class="code" href="class_doxygen_output_file.html#718779752b851ac0dc6281a8c8d77e7e">license</a>=<span class="stringliteral">""</span>;
+<a name="l00098"></a>00098                 <a class="code" href="class_doxygen_output_file.html#b0da275520918e23dd615e2a747528f1">build</a>=<span class="stringliteral">""</span>;
+<a name="l00099"></a>00099         };
+<a name="l00100"></a>00100         
+<a name="l00101"></a><a class="code" href="class_doxygen_output_file.html#35f6b9d4e558c4e0350578ca9a5cde6e">00101</a>         <a class="code" href="class_doxygen_output_file.html#35f6b9d4e558c4e0350578ca9a5cde6e">~DoxygenOutputFile</a>() <span class="comment">//Destructor</span>
+<a name="l00102"></a>00102         { } ;
+<a name="l00103"></a>00103         
+<a name="l00104"></a><a class="code" href="class_doxygen_output_file.html#bf481e9441a8e505417d34fd66bd7f0e">00104</a>         <span class="keywordtype">int</span> <a class="code" href="class_doxygen_output_file.html#bf481e9441a8e505417d34fd66bd7f0e">generateCommentForFile</a>(<a class="code" href="class_doxygen_output_file.html">DoxygenOutputFile</a> output) {
+<a name="l00105"></a>00105                 <span class="keywordtype">char</span> text[1000]=<span class="stringliteral">""</span>;
+<a name="l00106"></a>00106                 strcat(text,<span class="stringliteral">"\t\\ file "</span>);
+<a name="l00107"></a>00107                 strcat(text,output.<a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>);
+<a name="l00108"></a>00108                 strcat(text,<span class="stringliteral">"\n\t\\ author "</span>);
+<a name="l00109"></a>00109                 strcat(text,output.<a class="code" href="class_doxygen_output_file.html#02bd92faa38aaa6cc0ea75e59937a1ef">author</a>);
+<a name="l00110"></a>00110                 strcat(text,<span class="stringliteral">"\n\t\\ date "</span>);
+<a name="l00111"></a>00111                 strcat(text,output.<a class="code" href="class_doxygen_output_file.html#5fc732311905cb27e82d67f4f6511f7f">date</a>);
+<a name="l00112"></a>00112                 strcat(text,<span class="stringliteral">"\n\t\\ brief "</span>);
+<a name="l00113"></a>00113                 strcat(text,output.<a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>);
+<a name="l00114"></a>00114                 strcat(text,<span class="stringliteral">"\n\t\\ section LICENSE "</span>);
+<a name="l00115"></a>00115                 strcat(text,output.<a class="code" href="class_doxygen_output_file.html#718779752b851ac0dc6281a8c8d77e7e">license</a>);
+<a name="l00116"></a>00116                 strcat(text,<span class="stringliteral">"\n\t\\ section BUILD "</span>);
+<a name="l00117"></a>00117                 strcat(text,output.<a class="code" href="class_doxygen_output_file.html#b0da275520918e23dd615e2a747528f1">build</a>);
+<a name="l00118"></a>00118                 strcat(text,<span class="stringliteral">"\n\t\\ section DESCRIPTION "</span>);
+<a name="l00119"></a>00119                 strcat(text,output.<a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>);
+<a name="l00120"></a>00120                 <a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">generateComment</a>(text);
+<a name="l00121"></a>00121                 <span class="keywordflow">return</span> 0;
+<a name="l00122"></a>00122         }
+<a name="l00123"></a>00123 };
+<a name="l00124"></a>00124 
+<a name="l00125"></a><a class="code" href="class_doxygen_output_enumeration.html">00125</a> <span class="keyword">class </span><a class="code" href="class_doxygen_output_enumeration.html">DoxygenOutputEnumeration</a> : <span class="keyword">public</span> <a class="code" href="class_doxygen_output.html">DoxygenOutput</a>{
+<a name="l00126"></a>00126 <span class="keyword">public</span>:
+<a name="l00127"></a>00127         
+<a name="l00128"></a><a class="code" href="class_doxygen_output_enumeration.html#7ae367bb085b6095370b8ad098d81681">00128</a>         <a class="code" href="class_doxygen_output_enumeration.html#7ae367bb085b6095370b8ad098d81681">DoxygenOutputEnumeration</a>() <span class="comment">//Constructor </span>
+<a name="l00129"></a>00129         { 
+<a name="l00130"></a>00130         };
+<a name="l00131"></a><a class="code" href="class_doxygen_output_enumeration.html#63cac653795dcc30b645c304c0881327">00131</a>         <a class="code" href="class_doxygen_output_enumeration.html#63cac653795dcc30b645c304c0881327">~DoxygenOutputEnumeration</a>() <span class="comment">//Destructor</span>
+<a name="l00132"></a>00132         { } ;
+<a name="l00133"></a>00133         
+<a name="l00134"></a><a class="code" href="class_doxygen_output_enumeration.html#2bcc08c5f6fb94e00db994fc7a325b9a">00134</a>         <span class="keywordtype">int</span> <a class="code" href="class_doxygen_output_enumeration.html#2bcc08c5f6fb94e00db994fc7a325b9a">generateCommentForEnumeration</a>(<a class="code" href="class_doxygen_output_enumeration.html">DoxygenOutputEnumeration</a> output) {
+<a name="l00135"></a>00135                 <span class="keywordtype">char</span> text[1000]=<span class="stringliteral">""</span>;
+<a name="l00136"></a>00136                 strcat(text,<span class="stringliteral">"\t\\ enum"</span>);
+<a name="l00137"></a>00137                 strcat(text,output.<a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>);
+<a name="l00138"></a>00138                 strcat(text,<span class="stringliteral">"\n\t\\ brief"</span>);
+<a name="l00139"></a>00139                 strcat(text,output.<a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>);
+<a name="l00140"></a>00140                 strcat(text,<span class="stringliteral">"\n\n\ t"</span>);
+<a name="l00141"></a>00141                 strcat(text,output.<a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>);
+<a name="l00142"></a>00142                 <a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">generateComment</a>(text);
+<a name="l00143"></a>00143                 <span class="keywordflow">return</span> 0;
+<a name="l00144"></a>00144         }
+<a name="l00145"></a>00145 };
+<a name="l00146"></a>00146 
+<a name="l00147"></a><a class="code" href="class_doxygen_output_variable.html">00147</a> <span class="keyword">class </span><a class="code" href="class_doxygen_output_variable.html">DoxygenOutputVariable</a> : <span class="keyword">public</span> <a class="code" href="class_doxygen_output.html">DoxygenOutput</a>{
+<a name="l00148"></a>00148 <span class="keyword">public</span>:
+<a name="l00149"></a>00149         
+<a name="l00150"></a><a class="code" href="class_doxygen_output_variable.html#52a59495cba30a0b91298ce9d56a5c15">00150</a>         <a class="code" href="class_doxygen_output_variable.html#52a59495cba30a0b91298ce9d56a5c15">DoxygenOutputVariable</a>() <span class="comment">//Constructor </span>
+<a name="l00151"></a>00151         { 
+<a name="l00152"></a>00152         };
+<a name="l00153"></a><a class="code" href="class_doxygen_output_variable.html#44302f11dc77fb9578932ee663e8128a">00153</a>         <a class="code" href="class_doxygen_output_variable.html#44302f11dc77fb9578932ee663e8128a">~DoxygenOutputVariable</a>() <span class="comment">//Destructor</span>
+<a name="l00154"></a>00154         { } ;
+<a name="l00155"></a>00155         
+<a name="l00156"></a><a class="code" href="class_doxygen_output_variable.html#c73114a8b50a70931e7151241216a682">00156</a>         <span class="keywordtype">int</span> <a class="code" href="class_doxygen_output_variable.html#c73114a8b50a70931e7151241216a682">generateCommentForVariable</a>(<a class="code" href="class_doxygen_output_variable.html">DoxygenOutputVariable</a> output) {
+<a name="l00157"></a>00157                 <span class="keywordtype">char</span> text[1000]=<span class="stringliteral">""</span>;
+<a name="l00158"></a>00158                 strcat(text,<span class="stringliteral">"\t\\ var "</span>);
+<a name="l00159"></a>00159                 strcat(text,output.<a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>);
+<a name="l00160"></a>00160                 strcat(text,<span class="stringliteral">"\n\t\\ brief "</span>);
+<a name="l00161"></a>00161                 strcat(text,output.<a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>);
+<a name="l00162"></a>00162                 strcat(text,<span class="stringliteral">"\n\n\ t"</span>);
+<a name="l00163"></a>00163                 strcat(text,output.<a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>);
+<a name="l00164"></a>00164                 <a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">generateComment</a>(text);
+<a name="l00165"></a>00165                 <span class="keywordflow">return</span> 0;
+<a name="l00166"></a>00166         }
+<a name="l00167"></a>00167 };
+<a name="l00168"></a>00168 
+<a name="l00169"></a><a class="code" href="class_doxygen_output_struct.html">00169</a> <span class="keyword">class </span><a class="code" href="class_doxygen_output_struct.html">DoxygenOutputStruct</a> : <span class="keyword">public</span> <a class="code" href="class_doxygen_output.html">DoxygenOutput</a>{
+<a name="l00170"></a>00170 <span class="keyword">public</span>:
+<a name="l00171"></a>00171         
+<a name="l00172"></a><a class="code" href="class_doxygen_output_struct.html#f5ec8f156b24f2a6deae5a8cb2e33179">00172</a>         <a class="code" href="class_doxygen_output_struct.html#f5ec8f156b24f2a6deae5a8cb2e33179">DoxygenOutputStruct</a>() <span class="comment">//Constructor </span>
+<a name="l00173"></a>00173         { 
+<a name="l00174"></a>00174         };
+<a name="l00175"></a><a class="code" href="class_doxygen_output_struct.html#5440c955b68400c56084cbdd02b219d5">00175</a>         <a class="code" href="class_doxygen_output_struct.html#5440c955b68400c56084cbdd02b219d5">~DoxygenOutputStruct</a>() <span class="comment">//Destructor</span>
+<a name="l00176"></a>00176         { } ;
+<a name="l00177"></a>00177         
+<a name="l00178"></a><a class="code" href="class_doxygen_output_struct.html#8e4f6dcab5ffb3a722e1337456f7d4e6">00178</a>         <span class="keywordtype">int</span> <a class="code" href="class_doxygen_output_struct.html#8e4f6dcab5ffb3a722e1337456f7d4e6">generateCommentForStruct</a>(<a class="code" href="class_doxygen_output_struct.html">DoxygenOutputStruct</a> output) {
+<a name="l00179"></a>00179                 <span class="keywordtype">char</span> text[1000]=<span class="stringliteral">""</span>;
+<a name="l00180"></a>00180                 strcat(text,<span class="stringliteral">"\t\\ struct "</span>);
+<a name="l00181"></a>00181                 strcat(text,output.<a class="code" href="class_doxygen_output.html#b068931cc450442b63f5b3d276ea4297">name</a>);
+<a name="l00182"></a>00182                 strcat(text,<span class="stringliteral">"\n\t\\ brief "</span>);
+<a name="l00183"></a>00183                 strcat(text,output.<a class="code" href="class_doxygen_output.html#106f16a8fde7ae2ecac302abf5b49a90">brief</a>);
+<a name="l00184"></a>00184                 strcat(text,<span class="stringliteral">"\n\n\ t"</span>);
+<a name="l00185"></a>00185                 strcat(text,output.<a class="code" href="class_doxygen_output.html#67daf92c833c41c95db874e18fcb2786">description</a>);
+<a name="l00186"></a>00186                 <a class="code" href="class_doxygen_output.html#580ddb53643bfacb31497bf9ed5bad44">generateComment</a>(text);
+<a name="l00187"></a>00187                 <span class="keywordflow">return</span> 0;
+<a name="l00188"></a>00188         }
+<a name="l00189"></a>00189 };
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jan 12 23:08:52 2011 für DoxygenOutPut von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.5 </small></address>
+</body>
+</html>

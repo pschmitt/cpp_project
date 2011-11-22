@@ -1,0 +1,79 @@
+\section{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/Cylinder\-Library/src/cylinder.c-Dateireferenz}
+\label{cylinder_8c}\index{C:/Users/siham/Desktop/Zylinder/Exemple_Cylinder/CylinderLibrary/src/cylinder.c@{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/CylinderLibrary/src/cylinder.c}}
+{\tt \#include \char`\"{}cylinder.h\char`\"{}}\par
+{\tt \#include \char`\"{}circle.h\char`\"{}}\par
+
+
+Include-Abh\"{a}ngigkeitsdiagramm f\"{u}r cylinder.c:\subsection*{Funktionen}
+\begin{CompactItemize}
+\item 
+double {\bf cylinder\-Capacity} (const {\bf Cylinder} $\ast$c)
+\item 
+double {\bf cylinder\-Lateral\-Area} (const {\bf Cylinder} $\ast$c)
+\item 
+double {\bf cylinder\-Surface} (const {\bf Cylinder} $\ast$c)
+\end{CompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\index{cylinder.c@{cylinder.c}!cylinderCapacity@{cylinderCapacity}}
+\index{cylinderCapacity@{cylinderCapacity}!cylinder.c@{cylinder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double cylinder\-Capacity (const {\bf Cylinder} $\ast$ {\em c})}\label{cylinder_8c_c35ebde26ddb19866e3f1259e304cca8}
+
+
+filename: {\bf cylinder.c}{\rm (S.\,\pageref{cylinder_8c})} 
+
+Definiert in Zeile 5 der Datei cylinder.c.
+
+Benutzt circle\-Area(), Cylinder::height und Cylinder::radius.
+
+\footnotesize\begin{verbatim}6 {
+7         if (!c || c->radius < 0 || c->height < 0) { return -1; }
+8         return circleArea(c->radius) * c->height;
+9 }
+\end{verbatim}\normalsize 
+
+
+
+
+Hier ist der Graph aller Aufrufe f\"{u}r diese Funktion:\index{cylinder.c@{cylinder.c}!cylinderLateralArea@{cylinderLateralArea}}
+\index{cylinderLateralArea@{cylinderLateralArea}!cylinder.c@{cylinder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double cylinder\-Lateral\-Area (const {\bf Cylinder} $\ast$ {\em c})}\label{cylinder_8c_bea49511e550ad0db24bf68ce91418ff}
+
+
+
+
+Definiert in Zeile 19 der Datei cylinder.c.
+
+Benutzt circumference(), Cylinder::height und Cylinder::radius.
+
+\footnotesize\begin{verbatim}20 {
+21         if (!c || c->radius < 0 || c->height < 0) { return -1; }
+22         return circumference(c->radius) * c->height;
+23 }
+\end{verbatim}\normalsize 
+
+
+
+
+Hier ist der Graph aller Aufrufe f\"{u}r diese Funktion:\index{cylinder.c@{cylinder.c}!cylinderSurface@{cylinderSurface}}
+\index{cylinderSurface@{cylinderSurface}!cylinder.c@{cylinder.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double cylinder\-Surface (const {\bf Cylinder} $\ast$ {\em c})}\label{cylinder_8c_064d77300d0537b11e9d104340f2f959}
+
+
+
+
+Definiert in Zeile 12 der Datei cylinder.c.
+
+Benutzt circle\-Area(), cylinder\-Lateral\-Area(), Cylinder::height und Cylinder::radius.
+
+\footnotesize\begin{verbatim}13 {
+14         if (!c || c->radius < 0 || c->height < 0) { return -1; }
+15         return 2 * circleArea(c->radius) + cylinderLateralArea(c);
+16 }
+\end{verbatim}\normalsize 
+
+
+
+
+Hier ist der Graph aller Aufrufe f\"{u}r diese Funktion:

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Cylinder_siham: C:/Users/siham/Desktop/Zylinder/CylinderLibrary/src/cylinder.h Quellcode</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Erzeugt von Doxygen 1.4.5 -->
+<div class="tabs">
+  <ul>
+    <li><a href="index.html"><span>Hauptseite</span></a></li>
+    <li><a href="annotated.html"><span>Klassen</span></a></li>
+    <li id="current"><a href="files.html"><span>Dateien</span></a></li>
+    <li><a href="dirs.html"><span>Verzeichnisse</span></a></li>
+  </ul></div>
+<div class="tabs">
+  <ul>
+    <li><a href="files.html"><span>Auflistung&nbsp;der&nbsp;Dateien</span></a></li>
+    <li><a href="globals.html"><span>Datei-Elemente</span></a></li>
+  </ul></div>
+<div class="nav">
+<a class="el" href="dir_C_3A_2FUsers_2F.html">Users</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2F.html">siham</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2F.html">Desktop</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2F.html">Zylinder</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2FCylinderLibrary_2F.html">CylinderLibrary</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_C_3A_2FUsers_2Fsiham_2FDesktop_2FZylinder_2FCylinderLibrary_2Fsrc_2F.html">src</a></div>
+<h1>cylinder.h</h1><a href="src_2cylinder_8h.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* filename: cylinder.h */</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#ifndef _CYLINDER_H_INCLUDED_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#define _CYLINDER_H_INCLUDED_</span>
+<a name="l00004"></a>00004 <span class="preprocessor"></span>
+<a name="l00005"></a>00005 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structCylinder.html">Cylinder</a>
+<a name="l00006"></a>00006 {
+<a name="l00007"></a>00007         <span class="keywordtype">double</span> <a class="code" href="structCylinder.html#fc021d54683383e5078ab9fefc4d53c8">radius</a>;
+<a name="l00008"></a>00008         <span class="keywordtype">double</span> <a class="code" href="structCylinder.html#b435e227d5dd201e1768b2bcb2e0aa81">height</a>;
+<a name="l00009"></a>00009 } <a class="code" href="structCylinder.html">Cylinder</a>;
+<a name="l00010"></a>00010 
+<a name="l00011"></a><a class="code" href="src_2cylinder_8h.html#4e5ff3b99924220a69e25e53edcaeb31">00011</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> { <a class="code" href="build_2inc_2cylinder_8h.html#4e5ff3b99924220a69e25e53edcaeb3172cfeced8656bc799e87bdc6b1aa7ddf">IRON</a> = 1, <a class="code" href="build_2inc_2cylinder_8h.html#4e5ff3b99924220a69e25e53edcaeb318029fbd172f8364c78bd96ba415014d5">WOOD</a>, <a class="code" href="build_2inc_2cylinder_8h.html#4e5ff3b99924220a69e25e53edcaeb312ad3b4e3bd1cb102d5b5d2a436979755">GLAS</a> } <a class="code" href="build_2inc_2cylinder_8h.html#4e5ff3b99924220a69e25e53edcaeb31">CylinderMaterial</a>;
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="keywordtype">double</span> <a class="code" href="build_2inc_2cylinder_8h.html#c35ebde26ddb19866e3f1259e304cca8">cylinderCapacity</a>(<span class="keyword">const</span> <a class="code" href="structCylinder.html">Cylinder</a>* c);
+<a name="l00014"></a>00014 <span class="keywordtype">double</span> <a class="code" href="build_2inc_2cylinder_8h.html#064d77300d0537b11e9d104340f2f959">cylinderSurface</a>(<span class="keyword">const</span> <a class="code" href="structCylinder.html">Cylinder</a>* c);
+<a name="l00015"></a>00015 <span class="keywordtype">double</span> <a class="code" href="build_2inc_2cylinder_8h.html#bea49511e550ad0db24bf68ce91418ff">cylinderLateralArea</a>(<span class="keyword">const</span> <a class="code" href="structCylinder.html">Cylinder</a>* c);
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="preprocessor">#endif </span><span class="comment">/* #ifndef _CYLINDER_H_INCLUDED_ */</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Erzeugt am Wed Jan 12 22:50:33 2011 für Cylinder_siham von&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.5 </small></address>
+</body>
+</html>

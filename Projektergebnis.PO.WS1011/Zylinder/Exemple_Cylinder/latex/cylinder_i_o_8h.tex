@@ -1,0 +1,137 @@
+\section{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/Cylinder\-Application/src/cylinder\-IO.h-Dateireferenz}
+\label{cylinder_i_o_8h}\index{C:/Users/siham/Desktop/Zylinder/Exemple_Cylinder/CylinderApplication/src/cylinderIO.h@{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/CylinderApplication/src/cylinderIO.h}}
+
+
+Dieser Graph zeigt, welche Datei direkt oder indirekt diese Datei enth\"{a}lt:\subsection*{Funktionen}
+\begin{CompactItemize}
+\item 
+int {\bf continuing} ()
+\item 
+int {\bf get\-Cylinder\-Data} (struct {\bf Cylinder} $\ast$c)
+\item 
+void {\bf goodbye} ()
+\item 
+void {\bf on\-Wrong\-Input} ()
+\item 
+void {\bf print\-Cylinder\-Surface} (double surface)
+\item 
+void {\bf welcome} ()
+\end{CompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\index{cylinderIO.h@{cylinder\-IO.h}!continuing@{continuing}}
+\index{continuing@{continuing}!cylinderIO.h@{cylinder\-IO.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int continuing ()}\label{cylinder_i_o_8h_fbf29286f9288c2f6a6a903105442720}
+
+
+
+
+Definiert in Zeile 27 der Datei cylinder\-IO.c.
+
+Wird benutzt von main().
+
+\footnotesize\begin{verbatim}28 {
+29         int doit = 0;
+30         char c = '\0'; 
+31         printf("Weiter [J, j]: "); scanf("\n%c", &c);
+32         if (c == 'j' || c == 'J') { doit = 1; }
+33         return doit;
+34 }
+\end{verbatim}\normalsize 
+
+
+\index{cylinderIO.h@{cylinder\-IO.h}!getCylinderData@{getCylinderData}}
+\index{getCylinderData@{getCylinderData}!cylinderIO.h@{cylinder\-IO.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int get\-Cylinder\-Data (struct {\bf Cylinder} $\ast$ {\em c})}\label{cylinder_i_o_8h_9c325db5f2a19b9e8882666eb60ea0b2}
+
+
+
+
+Definiert in Zeile 41 der Datei cylinder\-IO.c.
+
+Benutzt get\-Cylinder\-Height(), get\-Cylinder\-Radius(), Cylinder::height und Cylinder::radius.
+
+Wird benutzt von main().
+
+\footnotesize\begin{verbatim}42 {
+43         int inputOK = 1;
+44         if (!c) { return 0; }
+45         c->radius = getCylinderRadius();
+46         c->height = getCylinderHeight();
+47         if (c->radius <= 0 || c->height <= 0) { inputOK = 0; }
+48         return inputOK;
+49 }
+\end{verbatim}\normalsize 
+
+
+
+
+Hier ist der Graph aller Aufrufe f\"{u}r diese Funktion:\index{cylinderIO.h@{cylinder\-IO.h}!goodbye@{goodbye}}
+\index{goodbye@{goodbye}!cylinderIO.h@{cylinder\-IO.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void goodbye ()}\label{cylinder_i_o_8h_9d02e3c6092fbd61a94d4bda90de3fc5}
+
+
+
+
+Definiert in Zeile 36 der Datei cylinder\-IO.c.
+
+Wird benutzt von main().
+
+\footnotesize\begin{verbatim}37 {
+38         printf("\nCopyright: HTW des Saarlandes\n");
+39 }
+\end{verbatim}\normalsize 
+
+
+\index{cylinderIO.h@{cylinder\-IO.h}!onWrongInput@{onWrongInput}}
+\index{onWrongInput@{onWrongInput}!cylinderIO.h@{cylinder\-IO.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void on\-Wrong\-Input ()}\label{cylinder_i_o_8h_ac5129efd394503c2590d23da2c37561}
+
+
+
+
+Definiert in Zeile 57 der Datei cylinder\-IO.c.
+
+Wird benutzt von main().
+
+\footnotesize\begin{verbatim}58 {
+59         printf("FEHLER: Bitte Beachten: Radius und Hoehe positiv! \n");
+60 }
+\end{verbatim}\normalsize 
+
+
+\index{cylinderIO.h@{cylinder\-IO.h}!printCylinderSurface@{printCylinderSurface}}
+\index{printCylinderSurface@{printCylinderSurface}!cylinderIO.h@{cylinder\-IO.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\-Cylinder\-Surface (double {\em surface})}\label{cylinder_i_o_8h_d946199312576e1ff9d3ac37a8bedacf}
+
+
+
+
+Definiert in Zeile 52 der Datei cylinder\-IO.c.
+
+Wird benutzt von main().
+
+\footnotesize\begin{verbatim}53 {
+54         printf("Die Oberflaeche des Zylinders betraegt %f\n", surface);
+55 }
+\end{verbatim}\normalsize 
+
+
+\index{cylinderIO.h@{cylinder\-IO.h}!welcome@{welcome}}
+\index{welcome@{welcome}!cylinderIO.h@{cylinder\-IO.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void welcome ()}\label{cylinder_i_o_8h_fdf71b0239b7d4a9b67b784177146385}
+
+
+
+
+Definiert in Zeile 22 der Datei cylinder\-IO.c.
+
+Wird benutzt von main().
+
+\footnotesize\begin{verbatim}23 {
+24         printf("Oberflaeche eines Zylinders!\n\n");
+25 }
+\end{verbatim}\normalsize 
+
+

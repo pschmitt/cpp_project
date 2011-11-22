@@ -1,0 +1,55 @@
+\section{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/Cylinder\-Library/src/circle.c-Dateireferenz}
+\label{circle_8c}\index{C:/Users/siham/Desktop/Zylinder/Exemple_Cylinder/CylinderLibrary/src/circle.c@{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/CylinderLibrary/src/circle.c}}
+{\tt \#include \char`\"{}circle.h\char`\"{}}\par
+
+
+Include-Abh\"{a}ngigkeitsdiagramm f\"{u}r circle.c:\subsection*{Funktionen}
+\begin{CompactItemize}
+\item 
+double {\bf circle\-Area} (double radius)
+\item 
+double {\bf circumference} (double radius)
+\end{CompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\index{circle.c@{circle.c}!circleArea@{circleArea}}
+\index{circleArea@{circleArea}!circle.c@{circle.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double circle\-Area (double {\em radius})}\label{circle_8c_ef6c48edf38069b2b3684a790d806b92}
+
+
+filename: {\bf circle.c}{\rm (S.\,\pageref{circle_8c})} 
+
+Definiert in Zeile 4 der Datei circle.c.
+
+Benutzt PI.
+
+Wird benutzt von cylinder\-Capacity() und cylinder\-Surface().
+
+\footnotesize\begin{verbatim}5 {
+6         if (radius < 0) { return -1; }
+7         return PI * radius * radius;
+8 }
+\end{verbatim}\normalsize 
+
+
+\index{circle.c@{circle.c}!circumference@{circumference}}
+\index{circumference@{circumference}!circle.c@{circle.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double circumference (double {\em radius})}\label{circle_8c_e48234f11885e6a380e29e50f272c7b4}
+
+
+
+
+Definiert in Zeile 10 der Datei circle.c.
+
+Benutzt PI.
+
+Wird benutzt von cylinder\-Lateral\-Area().
+
+\footnotesize\begin{verbatim}11 {
+12         if (radius < 0) { return -1; }
+13         return 2 * PI * radius;
+14 }
+\end{verbatim}\normalsize 
+
+

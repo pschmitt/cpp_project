@@ -1,0 +1,54 @@
+\section{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/Cylinder\-Application/src/Cylinder\-Application.main.c-Dateireferenz}
+\label{_cylinder_application_8main_8c}\index{C:/Users/siham/Desktop/Zylinder/Exemple_Cylinder/CylinderApplication/src/CylinderApplication.main.c@{C:/Users/siham/Desktop/Zylinder/Exemple\_\-Cylinder/CylinderApplication/src/CylinderApplication.main.c}}
+{\tt \#include \char`\"{}cylinder\-IO.h\char`\"{}}\par
+{\tt \#include $<$cylinder.h$>$}\par
+
+
+Include-Abh\"{a}ngigkeitsdiagramm f\"{u}r Cylinder\-Application.main.c:\subsection*{Funktionen}
+\begin{CompactItemize}
+\item 
+int {\bf main} ()
+\end{CompactItemize}
+
+
+\subsection{Dokumentation der Funktionen}
+\index{CylinderApplication.main.c@{Cylinder\-Application.main.c}!main@{main}}
+\index{main@{main}!CylinderApplication.main.c@{Cylinder\-Application.main.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main ()}\label{_cylinder_application_8main_8c_ea83b916b3f52eec32ae6d54d59b4453}
+
+
+filename: cylinder.main.c 
+
+Definiert in Zeile 5 der Datei Cylinder\-Application.main.c.
+
+Benutzt continuing(), cylinder\-Surface(), get\-Cylinder\-Data(), goodbye(), on\-Wrong\-Input(), print\-Cylinder\-Surface() und welcome().
+
+\footnotesize\begin{verbatim}6 {
+7         welcome();
+8 
+9         do
+10         {
+11                 Cylinder c;
+12                 int inputOK = getCylinderData(&c);
+13                 if (inputOK) 
+14                 {
+15                         double surface = cylinderSurface(&c);
+16                         printCylinderSurface(surface);
+17                 } 
+18                 else 
+19                 {
+20                         onWrongInput();
+21                 }
+22 
+23         } while(continuing());
+24 
+25         goodbye();
+26 
+27         return 0;
+28 }
+\end{verbatim}\normalsize 
+
+
+
+
+Hier ist der Graph aller Aufrufe f\"{u}r diese Funktion:
