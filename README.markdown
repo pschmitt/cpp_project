@@ -10,7 +10,7 @@ many things...
 Git Reference
 --
 [Progit](http://progit.org/book/)
-[README markdown live preview](http://github.github.com/github-flavored-markdown/preview.html)
+[README WYSIWYG](http://github.github.com/github-flavored-markdown/preview.html)
 
 
 Contact
