@@ -1,15 +1,20 @@
-C++ Projekt: C source code generator
+C++ Project: C source code generator
 ===
+
+T-t-t-t-test !
 
 
 ### TODO
-many things...
+
+* reorganise repo
+* many other things...
 
 
 ### Git Reference
-[Progit](http://progit.org/book/)
 
-[README WYSIWYG](http://github.github.com/github-flavored-markdown/preview.html)
+* [Progit](http://progit.org/book/)
+
+* [README WYSIWYG](http://github.github.com/github-flavored-markdown/preview.html)
 
 
 ### Contact
