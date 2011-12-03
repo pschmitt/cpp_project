@@ -10,9 +10,10 @@ many things...
 Git Reference
 --
 [Progit](http://progit.org/book/)
+[README markdown live preview](http://github.github.com/github-flavored-markdown/preview.html)
 
 
 Contact
 ---
-[Philipp Schmitt](philipp.schmitt@laxlinux.net)
+Philipp Schmitt: philipp.schmitt@laxlinux.net
 
