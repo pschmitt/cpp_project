@@ -2,19 +2,16 @@ C++ Projekt: C source code generator
 ===
 
 
-TODO
----
+### TODO
 many things...
 
 
-Git Reference
-###
+### Git Reference
 [Progit](http://progit.org/book/)
 
 [README WYSIWYG](http://github.github.com/github-flavored-markdown/preview.html)
 
 
-Contact
-###
+### Contact
 Philipp Schmitt: philipp.schmitt@laxlinux.net
 
