@@ -1,12 +1,18 @@
-// Mbeunzoueuh Gasparri
-// filename Programm.cpp
+/*
+ * Program.cpp
+ *
+ * 		Author: Mbeunzoueuh Gasparri
+ * Revision by: Philipp Schmitt
+ *
+ */
+
 #include"Program.h"
-Programm::Programm(Identifier projectName) :
+Program::Program(Identifier projectName) :
 		Project(projectName) {
 	//modulList=NULL;
 }
 
-void Programm::generate(const string& workspaceDirectory)
+void Program::generate(const string& workspaceDirectory)
 		throw (ProgrammException) {
 
 	Project::generate(workspaceDirectory);
@@ -14,7 +20,6 @@ void Programm::generate(const string& workspaceDirectory)
 	std::string srcDir = projectDir + "\\src";
 	if (_mkdir(srcDir.c_str()) == 0) {
 		//modul
-
 	} else {
 		throw "umnoglich! src Directorie zuerzeugen weil es schon vorhanden ist";
 	}

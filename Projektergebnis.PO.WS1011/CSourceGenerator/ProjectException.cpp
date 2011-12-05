@@ -1,11 +1,16 @@
-// Mbeunzoueuh Gasparri
-// filename ProjectException.c++
+/*
+ * ProjectException.cpp
+ *
+ * 		Author: Mbeunzoueuh Gasparri
+ * Revision by: Philipp Schmitt
+ *
+ */
+
 #include"ProjectException.h"
 
 ProjectException::ProjectException() throw () {
-}
-;
+};
 
-const string ProjectException::handlung() const throw () {
-	return "diese directory kann nicht erzeugt werden weil sie  schon vorhanden ist";
+const char* ProjectException::what() const throw () {
+	return "Cannot create directory: already exists";
 }

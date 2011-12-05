@@ -5,12 +5,13 @@
 
 #include <iostream>
 #include <string>
+#include "WorkspaceException.h"
 
 using namespace std;
 
 class WorkspaceException {
 public:
 	WorkspaceException() throw ();
-	const string handlung() const throw ();
+	const string what() const throw ();
 };
 #endif
