@@ -32,7 +32,7 @@ int main() {
 		cout << ws << endl << endl;
 
 		path p = ws.get_ws_dir();
-
+		cout << "wow";
 		create_directory(p);
 		cout << p << endl << exists(p.parent_path()) << endl << p.native();
 
