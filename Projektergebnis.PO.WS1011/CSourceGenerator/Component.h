@@ -1,39 +1,25 @@
-//filename: Component.h
-//author: Rolf
-
-#ifndef _COMPONENT_H_INCLUDED
-#define _COMPONENT_H_INCLUDED
+/*filename: component.h
+  author: clement Gorlt
+*/
+#ifndef COMPONENT_H_INCLUDED
+#define COMPONENT_H_INCLUDED
 
 #include <string>
 #include "Identifier.h"
-
-using namespace std;
-
+using std::string;
 class Component {
-
-	public:
-		
-		/* Funktionsdeklarationen */
-		virtual ~Component() {};
-		// fuer .c:
-		virtual void writeDefinitionTo(ostream& out) const = 0;
-		// fuer .h:
-		virtual void writeDeclarationTo(ostream& out) const = 0;
-	
-		/* Getters */
-		Identifier getIdentifier() const { return identifier; }//noetig ???
-		string getName() const { return identifier.getName(); }
-		string getDescription() const { return identifier.getDescription(); }
-	
-		/* Setters */
-		//void setDescription(const string& _description); -> unnoetig, Identifer ist const, und das ist auch gut so [ausser bei Wiederverwendung :( ]
-
-	protected:
-		/* Component ist abstrakt */
-		Component(const string& _name, Identifier::IdentifierType type, const string& _description = "");
-	
-	private:
-		const Identifier identifier;
-};
-
-#endif //_COMPONENT_H_INCLUDED
+public:
+       enum Visibility {PRIVATE, PUBLIC};
+       const string& getName() const;
+       const string& getDescription() const;
+       Visibility getVisibility()const;
+       void setDescription(const string& description);
+       void setVisibility(Visibility newVisibility);
+       virtual ~Component();
+protected:
+       Component(const string& name, Identifier::IdentifierType type,Visibility visibility = PUBLIC, const string& description = "");
+private:
+        Identifier identifier;
+        Visibility visibility;
+}
+#endif
