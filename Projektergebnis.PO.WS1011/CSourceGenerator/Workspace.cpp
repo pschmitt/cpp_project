@@ -19,16 +19,12 @@ void Workspace::add_project(Project& p) {
 
 void Workspace::generate() throw (WorkspaceException) {
 	list<Project*>::iterator it;
-	string str = "\\";
-	const char* c;
-	str = str + ws_id.getName();
-	c = str.c_str();
 
-	if (create_directory(c)) {
+	if (create_directory(ws_dir)) {
 		// teste ob es Projekte gibt
 		if (project_list.size() != 0) {
 			for (it = project_list.begin(); it != project_list.end(); it++)
-				(*it)->generate(str);
+				(*it)->generate(ws_dir);
 		}
 	} else
 		throw WorkspaceException();

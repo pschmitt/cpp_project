@@ -17,7 +17,7 @@ void Project::add_modul(Modul& m) {
 	modul_list.push_back(&m);
 }
 
-void Project::generate(const string& workspaceDirectory)
+void Project::generate(const path& workspace_dir)
 		throw (ProjectException) {
 	//project_dir = workspaceDirectory + "\\" + project_name;
 	// Check if directory already exists
@@ -30,6 +30,8 @@ void Project::generate(const string& workspaceDirectory)
 	//} else {
 	//	throw ProjectException();
 	//}
+	if (!create_directories(workspace_dir / project_id.getName()))
+		throw ProjectException();
 }
 
 Identifier Project::get_project_id() const {

@@ -28,7 +28,7 @@ class Project {
 public:
 	Project(const string& project_id, const string& _proj_description = "");
 	void add_modul(Modul& m);
-	void generate(const string& workspaceDirectory) throw (ProjectException);
+	void generate(const path& workspace_dir) throw (ProjectException);
 	Identifier get_project_id() const;
 private:
 	// why was that protected ?

@@ -5,6 +5,7 @@
  * Revision by: Philipp Schmitt
  *
  */
+
 #ifndef WORKSPACE_H_INCLUDED
 #define WORKSPACE_H_INCLUDED
 
@@ -20,10 +21,11 @@ using std::string;
 using namespace boost::filesystem;
 
 #ifndef RELEASE
-	typedef string Library;
+typedef string Library;
+typedef string Program;
 #else
-	#include "Library.h"
-	#include "Program.h"
+#include "Library.h"
+#include "Program.h"
 #endif
 
 // TODO exception hierarchy
@@ -40,6 +42,8 @@ private:
 	list<Project*> project_list;
 	Identifier ws_id;
 	path ws_dir;
+	Program prg;
+	Library lib;
 };
 
 ostream& operator<<(ostream& out, Workspace& ws);

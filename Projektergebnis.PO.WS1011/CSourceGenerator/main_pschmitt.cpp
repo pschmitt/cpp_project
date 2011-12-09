@@ -8,10 +8,6 @@
 #include <iostream>
 #include <string>
 #include <boost/filesystem.hpp>
-
-// Testing
-typedef std::string Modul;
-
 #include "Identifier.h"
 #include "Project.h"
 #include "Workspace.h"
@@ -21,7 +17,7 @@ using namespace std;
 
 int main() {
 	try {
-		Workspace ws = Workspace("Wss", "/tmp");
+		Workspace ws = Workspace("Ws", "/tmp");
 		Project p1 = Project("Proj");
 		Project p2 = Project("proj2");
 		Project p3 = Project("proj3");
@@ -31,11 +27,12 @@ int main() {
 		ws.add_project(p3);
 		cout << ws << endl << endl;
 
-		path p = ws.get_ws_dir();
+		/*path p = ws.get_ws_dir();
 		cout << "wow";
 		create_directory(p);
 		cout << p << endl << exists(p.parent_path()) << endl << p.native();
-
+		*/
+		ws.generate();
 	} catch (ProjectException& err) {
 		cout << err.what() << endl;
 	} catch (WorkspaceException& err) {

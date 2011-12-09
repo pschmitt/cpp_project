@@ -19,6 +19,5 @@ public:
 	Program(Identifier projectName);
 	virtual void generate(const string& workspaceDirectory)
 			throw (ProgrammException);
-
 };
 #endif
