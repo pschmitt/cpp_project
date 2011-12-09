@@ -10,8 +10,7 @@
 
 //TODO Abstrat !
 
-Project::Project(const string& _project_id,
-		const string& _proj_description) :
+Project::Project(const string& _project_id, const string& _proj_description) :
 		project_id(_project_id, Identifier::PROJECT, _proj_description) {
 }
 
@@ -19,8 +18,7 @@ void Project::add_modul(Modul& m) {
 	modul_list.push_back(&m);
 }
 
-void Project::generate(const path& workspace_dir)
-		throw (ProjectException) {
+void Project::generate(const path& workspace_dir) throw (ProjectException) {
 	//project_dir = workspaceDirectory + "\\" + project_name;
 	// Check if directory already exists
 	//if (create_directory(workspaceDirectory.c_str()) == 0) {
