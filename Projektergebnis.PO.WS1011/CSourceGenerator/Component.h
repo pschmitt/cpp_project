@@ -9,17 +9,20 @@
 using std::string;
 class Component {
 public:
-       enum Visibility {PRIVATE=0, PUBLIC=1};
+       enum Visibility {PUBLIC, PROTECTED, PRIVATE};
        const string& getName() const;
        const string& getDescription() const;
        Visibility getVisibility()const;
+       const bool getConst()const;
        void setDescription(const string& description);
        void setVisibility(Visibility newVisibility);
+       void setConst(bool newConst);
        virtual ~Component();
 protected:
-       Component(const string& name, Identifier::IdentifierType type,Visibility visibility = PUBLIC, const string& description = "");
+       Component(const string& name, Identifier::IdentifierType type,Visibility visibility = PUBLIC, bool isConst = false, const string& description = "");
 private:
         Identifier identifier;
         Visibility visibility;
+        bool isConst;
 };
 #endif
