@@ -4,7 +4,6 @@
 
 WorkspaceException::WorkspaceException() throw () {
 }
-;
 
 const string WorkspaceException::what() const throw () {
 	return "Cannot create directory: already exists";

@@ -1,6 +1,12 @@
-//dieses Programme nimmt ein name von ein Identifier/user und generate ein c_ und h_programme
-//filename modul.cpp
-//leonnel fonkwe
+/*
+ * Module.cpp
+ *
+ * dieses Programme nimmt ein name von ein Identifier/user und generate ein c_ und h_programme
+ *
+ * 		Author: Leonnel Fonkwe
+ * Revision by: Philipp Schmitt
+ *
+ */
 
 #include <iostream>
 #include <fstream>
@@ -10,7 +16,6 @@
 
 Module::Module(const string& _name, const string& _description /* = ""*/) :
 		module_name(_name, Identifier::MODUL, _description) {
-
 }
 
 // diese Methode liest was der User eingettipt hat
@@ -28,9 +33,8 @@ Module::Module(const string& _name, const string& _description /* = ""*/) :
  }
  */
 
-//Diese Methode schriebt  die Zeichen in gro�en Buchstaben
+//Diese Methode schriebt  die Zeichen in großen Buchstaben
 void toUpper(const string& str, string& maj) {
-
 	//string myString(str);//schneller -> Kopierkonstruktor
 	maj = str;
 	int len = maj.length();
@@ -39,13 +43,11 @@ void toUpper(const string& str, string& maj) {
 			maj[i] = maj[i] + 'A' - 'a';
 		}
 	}
-
 	//return myString;
 }
 
 // diese Methode generiert de C File
 void Module::generateCFile() const { //ici erreur
-
 	string varmaj; // variable parametre
 	toUpper(module_name.getName(), varmaj);
 
@@ -70,6 +72,7 @@ void Module::generateCFile() const { //ici erreur
 	c_File << "}" << endl;
 	c_File << "#endif" << endl;
 }
+
 //diese Methode generiert de H file
 void Module::generateHFile() const {
 
@@ -93,8 +96,9 @@ void Module::generateHFile() const {
 
 	hFile << "#endif /* " << sentrydefine << " */" << endl;
 }
+
 // diese methode ruft hfli und cfile um die H-C file zu generieren
-void Module::generateModule() const {
+void Module::generate() const {
 
 	generateHFile();
 	generateCFile();
