@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -lboost_filesystem -W -Wall -v
+CXXFLAGS = -L/usr/lib/ -lboost_filesystem -lboost_system -W -Wall -v
 
 # compile !
 all: main.o
