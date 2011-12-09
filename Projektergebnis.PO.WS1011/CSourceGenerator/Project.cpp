@@ -8,6 +8,8 @@
 
 #include"Project.h"
 
+//TODO Abstrat !
+
 Project::Project(const string& _project_id,
 		const string& _proj_description) :
 		project_id(_project_id, Identifier::PROJECT, _proj_description) {
