@@ -1,27 +1,43 @@
-// Mbeunzoueuh Gasparri
-//Project.h
+/*
+ * Project.h
+ *
+ * 		Author: Mbeunzoueuh Gasparri
+ * Revision by: Philipp Schmitt
+ *
+ */
+
 #ifndef PROJECT_H_INCLUDED
 #define PROJECT_H_INCLUDED
-#include<string>
-#include<list>
-/*#include <direct.h>*/
+#include <list>
+#include <string>
+#include <boost/filesystem.hpp>
+#include "Identifier.h"
 #include "ProjectException.h"
 
-using namespace std;
+// TODO remove using directives
+using std::string;
+using namespace boost::filesystem;
 
-typedef string Identifier; // #include"Identifier.h"
-typedef string Modul; // #include"Modul.h"
+#ifndef RELEASE
+	typedef string Modul;
+#else
+	#include "Modul.h"
+#endif
 
 class Project {
 public:
-	Project(const string& projectName, const string& projectDescription = "");
-	void add(Modul m);
-	virtual void generate(const string& workspaceDirectory)
-			throw (ProjectException);
-protected:
-	list<Modul> modulList;
-	Identifier _projectName;
-	string projectDir;
+	Project(const string& project_id, const string& _proj_description = "");
+	void add_modul(Modul& m);
+	void generate(const path& workspace_dir) throw (ProjectException);
+	Identifier get_project_id() const;
+private:
+	// why was that protected ?
+	list<Modul*> modul_list;
+	Identifier project_id;
+	/*path*/
+	string project_dir;
 };
+
+ostream& operator<<(ostream& out, Project& proj);
 
 #endif

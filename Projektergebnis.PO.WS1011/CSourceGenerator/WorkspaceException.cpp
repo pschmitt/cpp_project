@@ -6,6 +6,6 @@ WorkspaceException::WorkspaceException() throw () {
 }
 ;
 
-const string WorkspaceException::handlung() const throw () {
-	return "Directory already exists";
+const string WorkspaceException::what() const throw () {
+	return "Cannot create directory: already exists";
 }
