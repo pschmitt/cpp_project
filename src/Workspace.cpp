@@ -8,7 +8,7 @@
 
 #include"Workspace.h"
 
-Workspace::Workspace(const string& _ws_id, const path& _ws_dir, const string& _ws_description):
+Workspace::Workspace(const string& _ws_id, const path& _ws_dir, const string& _ws_description /* = "" */):
 		ws_id(_ws_id, Identifier::WORKSPACE, _ws_description) {
 	ws_dir = _ws_dir / ws_id.getName();
 }

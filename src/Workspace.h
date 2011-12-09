@@ -20,14 +20,6 @@
 using std::string;
 using namespace boost::filesystem;
 
-#ifndef RELEASE
-typedef string Library;
-typedef string Program;
-#else
-#include "Library.h"
-#include "Program.h"
-#endif
-
 // TODO exception hierarchy
 class Workspace {
 public:
@@ -42,8 +34,6 @@ private:
 	list<Project*> project_list;
 	Identifier ws_id;
 	path ws_dir;
-	Program prg;
-	Library lib;
 };
 
 ostream& operator<<(ostream& out, Workspace& ws);
