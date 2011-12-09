@@ -16,17 +16,19 @@ const string& Component::getDescription()const
     return identifier.getDescription();
 }
 
-Visibility Component::getVisibility()const
+Component::Visibility Component::getVisibility()const
 {
-     return this.visibility;
+     return this->visibility;
 }
 
 void Component::setVisibility(Visibility newVisibility)
 {
-     this.visibility=newVisibility;
+     this->visibility=newVisibility;
 }
 
 void Component::setDescription(const string& description)
 {
      identifier.setDescription(description);
 }
+
+Component::~Component(){}

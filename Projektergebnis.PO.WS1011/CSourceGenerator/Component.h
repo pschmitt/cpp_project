@@ -9,7 +9,7 @@
 using std::string;
 class Component {
 public:
-       enum Visibility {PRIVATE, PUBLIC};
+       enum Visibility {PRIVATE=0, PUBLIC=1};
        const string& getName() const;
        const string& getDescription() const;
        Visibility getVisibility()const;
@@ -21,5 +21,5 @@ protected:
 private:
         Identifier identifier;
         Visibility visibility;
-}
+};
 #endif
