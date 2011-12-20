@@ -1,70 +1,33 @@
 // Filename Object.cpp
-// author : Nicolas
+// author : Frantz Tenguemne
 #include "Object.h"
 #include <string>
-#include <iostream>
 
-Object::Object(const string& _name, const string& _type) 
-    : Symbol(_name, Identifier::VARIABLE), type(_type), value("")
+Object::Object(const string& name, Identifier::IdentifierType type, const string& typeObject, const string& value, 
+			  Visibility visibility, bool isConst
+			  )
+: Component(name, type, visibility, isConst), typeObject(typeObject), value(value)
 {
+
 }
 
-Object::Object(const string& _name, const string& _type, const string& _value /*= ""*/)
-	: Symbol(_name, Identifier::VARIABLE), type(_type), value(_value)
-{
-}
+Object::~Object(){}
 
-Object::Object(const string& _name, const string& _type, Visibility v)
-	: Symbol(_name, Identifier::VARIABLE), type(_type)
-{  
-	setVisibility(v);
+const string& Object::getValue() const{
+	return value;
 }
-
-
-Object::Object(const string& _name, const string& _type, const string& _value, Visibility v)
-    : Symbol (_name, Identifier::VARIABLE), type(_type), value(_value)
-{  
- setVisibility(v);
+const string& Object::getTypeObject() const{
+	return typeObject;
 }
-
-void Object::writeDefinitionTo(ostream& out) const {
-	if (isConst()) {
-		out << "static const ";
-	} else if (isPrivate()) {
-		cout << "static " ;
-	}
-      out << type << " " << getName();
-     if (!value.empty()) {
-        out  << " = " << value;                  
-     }
-     out << ";"  << endl; 
-       
-}
-		    
-            
-void Object::writeDeclarationTo(ostream& out) const {
-	if ( ! isPrivate()) {
-		if (isConst()) {
-		out << "static const ";
-		} else {
-		out << "extern ";
-		}
-		out << type << " " << getName();
-	    
-	     out << ";" << endl;
-	}
-}
-    
-
 /*
-bool Function::isConst() const 
-{
-	return _const;
-}
-
-bool Function::isStatic() const 
-{
-	return _static;
+utiliser la classe stringstream pour concatener le resultat au lieu de faire l'addition 
+const string& Object::toString() const{
+	string ausgabe("");
+	if(!value.empty())
+		return string("static " + typeObject + " " + getName() + " = " + value + ";" + endl);
+	else
+		return string("static " + typeObject + " " + getName() + ";" + endl); 
 }
 */
+
 
