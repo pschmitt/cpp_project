@@ -21,7 +21,7 @@ void Enumeration::writeDeclarationTo(ostream& out) const
 }
 
 void Enumeration::writeDefinitionTo(ostream& out) const {
-	out << "typedef enum " << Component::getName() << endl;
+	out << "noDefinition " << endl;
 }
 
 string Enumeration::toUpper (const string& str) {
