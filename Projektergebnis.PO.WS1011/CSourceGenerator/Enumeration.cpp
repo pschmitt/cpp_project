@@ -1,63 +1,39 @@
-//author: Hicham
-
-#include "Enumeration.h"
-#include<iostream>
-#include<string>
-#include <sstream>
-
-using namespace std;
-
-/*
-   Enumeration Konstruktur 
- */									//eigentlich Identifier::ENUM	
- Enumeration::Enumeration(const string& nameEnumator) : Component(nameEnumator, Identifier::TYPE)
+//filename: enumeration.cpp
+#include "enumeration.h"
+Enumeration::Enumeration(const string& name): Component(name, Identifier::ENUM)
 {
-  // this->name = nameEnumator;
- 
- }
-void Enumeration::toUpper (const string& str ,string& maj) {
-	//string myString(str);//schneller -> Kopierkonstruktor
-	maj = str;
-	int len = maj.length();
-	for (int i = 0; i < len; i++) {//oder str.length
-		if (maj[i] >= 'a' && maj[i] <= 'z') {
-			maj[i] = maj[i] + 'A' - 'a';		
+}
+
+void Enumeration::add(const string& name, const string& wert)
+{
+     string maj_name=Enumeration::toUpper(name);
+     enumeration.insert( map<string, string>::value_type( maj_name, wert) );
+}
+
+void Enumeration::writeDeclarationTo(ostream& out) const 
+{
+    out << "typedef enum" << "\n" << "{\n";
+    for(map<string, string>::const_iterator it = enumeration.begin(); it != enumeration.end(); ++it)
+     {
+        out << "\t" << (*it).first << "=" << (*it).second << "," << endl;       
+     }
+     out << "}" << getName() << ";";
+}
+
+void Enumeration::writeDefinitionTo(ostream& out) const {
+	out << "typedef enum " << Component::getName() << endl;
+}
+
+string Enumeration::toUpper (const string& str) {
+	string myString(str);//schneller -> Kopierkonstruktor
+	int len = myString.length();
+	for (int i = 0; i < len; i++) {
+		if (myString[i] >= 'a' && myString[i] <= 'z') {
+			myString[i] = myString[i] + 'A' - 'a';		
 		}
 	}
 	
-	//return myString;
+	return myString;
 }
 
-/*
-   Die Methode add ermoeglicht das Hinzufügen von von enumeratoren.
-   sie hat zwei parameter parametre name der enumertaor und wert sein Wert. 
- */
-void Enumeration::add(const string& name, const string& wert)
-{
-  string maj="";
-  string& maj2 = maj;
-  Enumeration::toUpper(name, maj2);
-  enumeratoren.insert( map<string, string>::value_type( maj2, wert) );
-
-}
-
-/*
-      Die Methode writeDeclarationTo schreibt eine Enumerator von der angegebne name und angegebne enumuratoren.
- */
-void Enumeration::writeDeclarationTo(ostream& out) const {
-out << "typedef enum" << "\n" << "{\n";
-    for(map<string, string>::const_iterator it = enumeratoren.begin(); it != enumeratoren.end(); ++it)
-     {
-        out << "\t" << (*it).first<< "=" << (*it).second <<"," << endl;       
-     }
-     out<<"}"<< getName() <<";";
-    //cout << fichier.str() << endl;   
-}
-
-
-void Enumeration::writeDefinitionTo(ostream& out) const {
-	out << "rien " << endl;
-}
-
-
-
+/*virtual*/Enumeration::~Enumeration() {}

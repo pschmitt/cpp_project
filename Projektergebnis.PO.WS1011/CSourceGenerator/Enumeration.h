@@ -1,24 +1,22 @@
-//filename Enumeration.h
-//author: Hicham
-#ifndef _ENUMERATION_H_INCLUDED
-#define _ENUMERATION_H_INCLUDED
+//filename: enumeration.h
+#ifndef ENUMERATION_H_INCLUDED
+#define ENUMERATION_H_INCLUDED
+
+#include "component.h"
+#include <iostream>
 #include <string>
 #include <map>
-#include "Component.h"
-using namespace std;
-
+using std::string;
 class Enumeration : public Component
 {
-  public: Enumeration(const string& nameEnumator);
-  
-  		void writeDefinitionTo(ostream& out) const;
-		void writeDeclarationTo(ostream& out) const;
- 
- void toUpper (const string& str ,string& maj);
-  map<string, string> enumeratoren;
-  void add(const string& name, const string& wert);      
-
- 
-
+public:
+      Enumeration(const string& name);
+      string toUpper(const string& str);
+      void add(const string& name, const string& wert);
+      map<string, string> enumeration;
+      void writeDeclarationTo(ostream& out)const;
+      void writeDefinitionTo(ostream& out)const;
+      ~Enumeration();
+      
 };
 #endif
