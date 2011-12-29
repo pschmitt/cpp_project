@@ -1,8 +1,9 @@
 //filename: Function.h
 //author: Rolf
+//revision by: Mathieu Morainville
 
-#ifndef _FUNCTION_H_INCLUDED
-#define _FUNCTION_H_INCLUDED
+#ifndef _FUNCTION_H_INCLUDED_
+#define _FUNCTION_H_INCLUDED_
 
 #include <iostream>
 #include <list>
@@ -55,6 +56,4 @@ class Function : public Symbol {
 		void writeSignatureAndReturnTypeTo(string& str) const;
 };
 
-
-
-#endif //_FUNCTION_H_INCLUDED
+#endif // _FUNCTION_H_INCLUDED_

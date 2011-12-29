@@ -1,7 +1,8 @@
 //filename: Function.cpp
 //author: Rolf
-#include "Function.h"
+//revision by: Mathieu Morainville
 
+#include "Function.h"
 #include <sstream>
 
 Function::Function (const string& _name, const string& _description /*= ""*/)
