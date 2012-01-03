@@ -1,12 +1,12 @@
-// Mbeunzoueuh Gasparri
-//filename ProgrammException.c++
-#include"ProgrammException.h"
+// filename: ProgramException.cpp
+// Creator: Montagnoni Thomas
+// Date: 26/12/2011
+// Version: 0.1
 
-ProgrammException::ProgrammException() throw() {
+#include "ProgramException.h"
 
-};
+ProgramException::ProgramException() throw() {};
 
-  const string ProgrammException::handlung () const throw(){
-		return "dieses Directory Library kann nicht erzeugt werden weil sie  schon vorhanden ist";
-
-} 
+const string ProgramException::reason() const throw() {
+	return "The Directory can't be created: he already exists";
+}

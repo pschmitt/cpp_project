@@ -1,16 +1,13 @@
-/*
- * ProjectException.cpp
- *
- * 		Author: Mbeunzoueuh Gasparri
- * Revision by: Philipp Schmitt
- *
- */
+// filename: ProjectException
+// Creator: Montagnoni Thomas
+// Date: 26/12/2011
+// Version: 0.1
 
-#include"ProjectException.h"
+#include "ProjectException.h"
 
-ProjectException::ProjectException() throw () {
+ProjectException::ProjectException() throw() {};
+
+const string ProjectException::reason() const throw() {
+	return "The Directory can't be created: he already exists";
 }
 
-const char* ProjectException::what() const throw () {
-	return "Cannot create directory: already exists";
-}

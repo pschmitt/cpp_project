@@ -1,26 +1,12 @@
-/*
- * Program.cpp
- *
- * 		Author: Mbeunzoueuh Gasparri
- * Revision by: Philipp Schmitt
- *
- */
+// Filename: Program.cpp
+// Creator: Montagnoni Thomas
+// Date: 26/12/2011
+// Version: 0.1
 
-#include"Program.h"
-Program::Program(Identifier projectName) :
-		Project(projectName) {
-	//modulList=NULL;
-}
+#include "Program.h"
 
-void Program::generate(const string& workspaceDirectory)
-		throw (ProgrammException) {
+Program::Program(const Identifier& name): Project(name) { }
 
-	Project::generate(workspaceDirectory);
-
-	std::string srcDir = projectDir + "\\src";
-	if (_mkdir(srcDir.c_str()) == 0) {
-		//modul
-	} else {
-		throw "umnoglich! src Directorie zuerzeugen weil es schon vorhanden ist";
-	}
-}
+void Program::generate(const path& destPath) throw (ProgramException) {
+	
+}	

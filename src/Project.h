@@ -1,43 +1,31 @@
-/*
- * Project.h
- *
- * 		Author: Mbeunzoueuh Gasparri
- * Revision by: Philipp Schmitt
- *
- */
+// Filename: Project.h
+// Firstversion by Philipp
+// Creator: Montagnoni Thomas
+// Date: 23/12/2011
+// version: 0.1
 
 #ifndef PROJECT_H_INCLUDED
 #define PROJECT_H_INCLUDED
+
 #include <list>
 #include <string>
-#include <boost/filesystem.hpp>
-#include "Identifier.h"
-#include "ProjectException.h"
 
-// TODO remove using directives
-using std::string;
-using namespace boost::filesystem;
-
-#ifndef RELEASE
-	typedef string Modul;
-#else
-	#include "Modul.h"
-#endif
+#include <Identifier.h>
+#include <ProjectException.h>
+// Boost permet de rendre le code portable
+#include <boost/filesystem.hpp> 
+using namespace std;
 
 class Project {
-public:
-	Project(const string& project_id, const string& _proj_description = "");
-	void add_modul(Modul& m);
-	void generate(const path& workspace_dir) throw (ProjectException);
-	Identifier get_project_id() const;
-private:
-	// why was that protected ?
-	list<Modul*> modul_list;
-	Identifier project_id;
-	/*path*/
-	string project_dir;
+	public:
+		Project(const string& name, const string& description= "");
+		void add_modul(Modul& m);
+		void create(const boost::filesystem::path& destPath) throw (ProjectException);
+		Identifier get_project() const;
+	private:
+		list<Modul*> modul_list;
+		Identifier name;
 };
 
-ostream& operator<<(ostream& out, Project& proj);
-
+ostream& operator<<(ostream& out, Project& project);
 #endif
