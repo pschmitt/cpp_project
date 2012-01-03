@@ -6,14 +6,11 @@
 #include <sstream>
 
 Function::Function (const string& _name, const string& _description /*= ""*/)
-	: Symbol(_name, Identifier::VARIABLE, _description), returnData("void", "")
-{
+	: Component(_name, Identifier::VARIABLE, Component::PUBLIC, false, _description), returnData("void", "")
+{}
 
-}
-
-Function::~Function() {
-
-}
+//Destructor
+Function::~Function() {}
 
 /*
 Fuegt einen neuen Parameter hinzu.
@@ -88,7 +85,7 @@ void Function::writeSignatureAndReturnTypeTo(ostream& out) const {
 	}
 	
 	out << ")";	
-	if (isConst()) { out << " const"; }
+	if (getConst() == true) { out << " const"; } //if (isConst()) { out << " const"; }
 }
 
 /*
@@ -140,7 +137,7 @@ void Function::writeDeclarationTo(string& str) const {
 
 
 //#define UNIT_TEST_FUNCTION
-#ifdef UNIT_TEST_FUNCTION
+//#ifdef UNIT_TEST_FUNCTION
 int main (int argc, char** argv) {
 	cout << "begin main unit test function ..." << endl;	
 	try {
@@ -158,11 +155,15 @@ int main (int argc, char** argv) {
 		f2.addParameter(p1);
 		f2.addParameter(p2);
 		f2.addParameter(p3);
-	
+		
+		f1.addParameter(p1);
+		
+		f1.writeDefinitionTo(cout);
+		f2.writeDefinitionTo(cout);
 	
 		// TEST01
 		f1.setConst(true);
-		if (f1.isConst()) {
+		if (f1.getConst() == true) {
 			cout << "TEST01 OK" << endl;
 		} else {
 			cout << "TEST01 FAILED!!!" << endl << "isConst() failed" << endl;
@@ -178,7 +179,7 @@ int main (int argc, char** argv) {
 		}
 	
 		// TEST03
-		f1.setVisibility(Symbol::PRIVATE);
+		f1.setVisibility(Component::PRIVATE);
 		if (f1.isStatic()) {
 			cout << "TEST03 OK" << endl;
 		} else {
@@ -232,4 +233,4 @@ int main (int argc, char** argv) {
 	
 	cout << "... end main unit test function" << endl;
 }
-#endif
+//#endif

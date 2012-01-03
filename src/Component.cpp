@@ -3,7 +3,7 @@
 */
 #include "component.h"
 
-Component::Component(const string& name, Identifier::IdentifierType type, Visibility visibility,bool isConst, const string& description):identifier(name, type, description), isConst(isConst), visibility(visibility)
+Component::Component(const string& name, Identifier::IdentifierType type, Visibility visibility, bool isConst, const string& description):identifier(name, type, description), isConst(isConst), visibility(visibility)
 {
 }
 const string& Component::getName()const
