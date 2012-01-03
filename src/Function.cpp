@@ -17,10 +17,15 @@ Fuegt einen neuen Parameter hinzu.
 Der Parameter wird kopiert.
 */
 void Function::addParameter(const Parameter& p, int pos /*= 0*/) {
-	/*
-	TODO: irgendwie noch die Gueltigkeit des Namens (macht eigtl. Identifier) UND des Typs testen
-	*/
-	parameterList.push_back(p);//kopiert ...
+	if (pos != 0) {
+		list<Parameter>::iterator it = parameterList.begin();
+		for (int i = 0; i < pos; i++) {
+			++it;
+		}
+		parameterList.insert(it, p);
+	} else {
+		parameterList.push_back(p); //kopiert ...
+	}
 }
 
 /*
@@ -41,8 +46,7 @@ const Parameter& Function::getParamAtIndex(const int index) const throw (const c
 		throw "There are no parameters for this function!";
 	} else if ((index < 0) || (index > (parameterList.size() - 1))) {
 		throw "Index out of bound!";
-	} else {	
-		;
+	} else {
 		list<Parameter>::const_iterator it = parameterList.begin();
 		for (int i = 0; i < index; i++) {
 			it++;
@@ -62,7 +66,6 @@ void Function::setReturnType(const string& returnType, const string& _text /*= "
 		returnData.returnType = returnType;
 		returnData.returnTypeDescription = _text;
 	}
-	
 }
 
 /*
@@ -74,15 +77,24 @@ void Function::writeSignatureAndReturnTypeTo(ostream& out) const {
 	out << returnData.returnType;
 	out << ' ' << getName();
 	out << "(";
-	for (list<Parameter>::const_iterator it = parameterList.begin(); it != parameterList.end(); it++) {
-		out << it->getType() << ' ' << it->getName();
-		out << ", ";
+	// for (list<Parameter>::const_iterator it = parameterList.begin(); it != parameterList.end(); it++) {
+		// out << it->getType() << ' ' << it->getName();
+	// }
+	list<Parameter>::const_iterator it = parameterList.begin();
+	if (parameterList.size() != 0) {
+		do {
+			out << it->getType() << ' ' << it->getName();
+			it++;
+			if (it != parameterList.end()) {
+				out << ", ";
+			}
+		} while (it != parameterList.end());
 	}
 	//letztes Komma rausschmeissen (hoffentlich besser als if-Konditition in der Schleife ?)
-	if (numParams() != 0) {
-		long pos = out.tellp();
-		out.seekp(pos - 2);
-	}
+	// if (numParams() != 0) {
+		// long pos = out.tellp();
+		// out.seekp(pos - 2);
+	// }
 	
 	out << ")";	
 	if (getConst() == true) { out << " const"; } //if (isConst()) { out << " const"; }
@@ -137,7 +149,7 @@ void Function::writeDeclarationTo(string& str) const {
 
 
 //#define UNIT_TEST_FUNCTION
-#ifdef UNIT_TEST_FUNCTION
+//#ifdef UNIT_TEST_FUNCTION
 int main (int argc, char** argv) {
 	cout << "begin main unit test function ..." << endl;	
 	try {
@@ -155,8 +167,6 @@ int main (int argc, char** argv) {
 		f2.addParameter(p1);
 		f2.addParameter(p2);
 		f2.addParameter(p3);
-		
-		f1.addParameter(p1);
 		
 		f1.writeDefinitionTo(cout);
 		f2.writeDefinitionTo(cout);
@@ -233,4 +243,4 @@ int main (int argc, char** argv) {
 	
 	cout << "... end main unit test function" << endl;
 }
-#endif
+//#endif
