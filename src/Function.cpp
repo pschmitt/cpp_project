@@ -17,7 +17,7 @@ Fuegt einen neuen Parameter hinzu.
 Der Parameter wird kopiert.
 */
 void Function::addParameter(const Parameter& p, int pos /*= 0*/) {
-	if (pos != 0) {
+	if (pos != 0 && pos < numParams()) {
 		list<Parameter>::iterator it = parameterList.begin();
 		for (int i = 0; i < pos; i++) {
 			++it;
@@ -149,7 +149,7 @@ void Function::writeDeclarationTo(string& str) const {
 
 
 //#define UNIT_TEST_FUNCTION
-//#ifdef UNIT_TEST_FUNCTION
+#ifdef UNIT_TEST_FUNCTION
 int main (int argc, char** argv) {
 	cout << "begin main unit test function ..." << endl;	
 	try {
@@ -243,4 +243,4 @@ int main (int argc, char** argv) {
 	
 	cout << "... end main unit test function" << endl;
 }
-//#endif
+#endif
