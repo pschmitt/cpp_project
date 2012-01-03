@@ -1,9 +1,9 @@
 //file name Structur.cpp
-//author: Hicham
+//author: Hicham & Gorlt
 
 #include "Structur.h"
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 #include <sstream>
 
 using namespace std;
@@ -11,8 +11,8 @@ using namespace std;
 /*
   Konstruktur der Struktur hat name der struktur als parameter
  */
-									   //eigentlich Identifier::STRUCT	
-   Structur::Structur(const string& nameStructur) : Component(nameStructur, Identifier::TYPE)
+		
+   Structur::Structur(const string& nameStructur) : Component(nameStructur, Identifier::STRUCT)
    {
       // this->name = nameStructur;
     }
@@ -43,7 +43,7 @@ out << "typedef enum" << "\n" << "{\n";
 }  
 
 void Structur::writeDefinitionTo(ostream& out) const {
-	out << "rien " << endl;
+	out << "noDefinition" << endl;
 }
 
 

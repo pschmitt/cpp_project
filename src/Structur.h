@@ -1,5 +1,5 @@
 //filename structur.h
-//author: Hicham
+//author: Hicham & Gorlt
 #ifndef _STRUCTUR_H_INCLUDED
 #define _STRUCTUR_H_INCLUDED
 #include <string>
@@ -8,7 +8,7 @@
 using namespace std;
 
 /*
-   Klasse structur. 
+ * Klasse structur. 
  */
 class Structur : public Component
 {
