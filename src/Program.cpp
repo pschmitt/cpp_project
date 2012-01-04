@@ -1,26 +1,40 @@
-/*
- * Program.cpp
- *
- * 		Author: Mbeunzoueuh Gasparri
- * Revision by: Philipp Schmitt
- *
- */
+// Filename: Program.cpp
+// Creator: Montagnoni Thomas
+// Date: 26/12/2011
+// Version: 0.1
 
-#include"Program.h"
-Program::Program(Identifier projectName) :
-		Project(projectName) {
-	//modulList=NULL;
+#include "Program.h"
+using namespace std;
+
+//Project got a name & a description
+Program::Program(const string& name, const string& description) : project_id(name, description) {
 }
 
-void Program::generate(const string& workspaceDirectory)
-		throw (ProgrammException) {
+//Add a modul to a Project
+void Program::add_module(Module& m) {
+	module_list.push_back(&m);
+}
 
-	Project::generate(workspaceDirectory);
-
-	std::string srcDir = projectDir + "\\src";
-	if (_mkdir(srcDir.c_str()) == 0) {
-		//modul
-	} else {
-		throw "umnoglich! src Directorie zuerzeugen weil es schon vorhanden ist";
+//Generate the directory
+void Project::generate(const path& destpath) throw (ProjectException) {
+	if (!create_directory(destpath.project_id.getName())) {
+		throw ProgramException();
 	}
+	create_directory(destpath + "/src");
+	if (module_list.size() != 0) {
+		for (it = module_list.begin(); it != module_list.end(); it++) {
+				(*it)->generate(destpath + "/src");
+		}
+	}
+}
+
+//Get the Project informations
+Identifier Program::get_project() const {
+	return project_id;
+}
+
+//Tostring for project informations
+ostream& operator<<(ostream& out, Project& project) {
+	out << project.get_project();
+	return out;
 }

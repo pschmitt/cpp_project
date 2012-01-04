@@ -19,10 +19,10 @@ public:
        void setConst(bool newConst);
        virtual ~Component();
 protected:
-       Component(const string& name, Identifier::IdentifierType type,Visibility visibility = PUBLIC, bool isConst = false, const string& description = "");
+       Component(const string& name, Identifier::IdentifierType type, Visibility visibility = PUBLIC, bool isConst = false, const string& description = "");
 private:
         Identifier identifier;
+		bool isConst;
         Visibility visibility;
-        bool isConst;
 };
 #endif

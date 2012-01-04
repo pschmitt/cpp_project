@@ -1,28 +1,31 @@
 //filename: Function.cpp
 //author: Rolf
-#include "Function.h"
+//revision by: Mathieu Morainville
 
+#include "Function.h"
 #include <sstream>
 
 Function::Function (const string& _name, const string& _description /*= ""*/)
-	: Symbol(_name, Identifier::VARIABLE, _description), returnData("void", "")
-{
+	: Component(_name, Identifier::VARIABLE, Component::PUBLIC, false, _description), returnData("void", "")
+{}
 
-}
-
-Function::~Function() {
-
-}
+//Destructor
+Function::~Function() {}
 
 /*
 Fuegt einen neuen Parameter hinzu.
 Der Parameter wird kopiert.
 */
 void Function::addParameter(const Parameter& p, int pos /*= 0*/) {
-	/*
-	TODO: irgendwie noch die Gueltigkeit des Namens (macht eigtl. Identifier) UND des Typs testen
-	*/
-	parameterList.push_back(p);//kopiert ...
+	if (pos != 0 && pos < numParams()) {
+		list<Parameter>::iterator it = parameterList.begin();
+		for (int i = 0; i < pos; i++) {
+			++it;
+		}
+		parameterList.insert(it, p);
+	} else {
+		parameterList.push_back(p); //kopiert ...
+	}
 }
 
 /*
@@ -43,8 +46,7 @@ const Parameter& Function::getParamAtIndex(const int index) const throw (const c
 		throw "There are no parameters for this function!";
 	} else if ((index < 0) || (index > (parameterList.size() - 1))) {
 		throw "Index out of bound!";
-	} else {	
-		;
+	} else {
 		list<Parameter>::const_iterator it = parameterList.begin();
 		for (int i = 0; i < index; i++) {
 			it++;
@@ -64,7 +66,6 @@ void Function::setReturnType(const string& returnType, const string& _text /*= "
 		returnData.returnType = returnType;
 		returnData.returnTypeDescription = _text;
 	}
-	
 }
 
 /*
@@ -76,18 +77,27 @@ void Function::writeSignatureAndReturnTypeTo(ostream& out) const {
 	out << returnData.returnType;
 	out << ' ' << getName();
 	out << "(";
-	for (list<Parameter>::const_iterator it = parameterList.begin(); it != parameterList.end(); it++) {
-		out << it->getType() << ' ' << it->getName();
-		out << ", ";
+	// for (list<Parameter>::const_iterator it = parameterList.begin(); it != parameterList.end(); it++) {
+		// out << it->getType() << ' ' << it->getName();
+	// }
+	list<Parameter>::const_iterator it = parameterList.begin();
+	if (parameterList.size() != 0) {
+		do {
+			out << it->getType() << ' ' << it->getName();
+			it++;
+			if (it != parameterList.end()) {
+				out << ", ";
+			}
+		} while (it != parameterList.end());
 	}
 	//letztes Komma rausschmeissen (hoffentlich besser als if-Konditition in der Schleife ?)
-	if (numParams() != 0) {
-		long pos = out.tellp();
-		out.seekp(pos - 2);
-	}
+	// if (numParams() != 0) {
+		// long pos = out.tellp();
+		// out.seekp(pos - 2);
+	// }
 	
 	out << ")";	
-	if (isConst()) { out << " const"; }
+	if (getConst() == true) { out << " const"; } //if (isConst()) { out << " const"; }
 }
 
 /*
@@ -157,11 +167,13 @@ int main (int argc, char** argv) {
 		f2.addParameter(p1);
 		f2.addParameter(p2);
 		f2.addParameter(p3);
-	
+		
+		f1.writeDefinitionTo(cout);
+		f2.writeDefinitionTo(cout);
 	
 		// TEST01
 		f1.setConst(true);
-		if (f1.isConst()) {
+		if (f1.getConst() == true) {
 			cout << "TEST01 OK" << endl;
 		} else {
 			cout << "TEST01 FAILED!!!" << endl << "isConst() failed" << endl;
@@ -177,7 +189,7 @@ int main (int argc, char** argv) {
 		}
 	
 		// TEST03
-		f1.setVisibility(Symbol::PRIVATE);
+		f1.setVisibility(Component::PRIVATE);
 		if (f1.isStatic()) {
 			cout << "TEST03 OK" << endl;
 		} else {

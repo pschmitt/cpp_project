@@ -1,20 +1,17 @@
-/*
- * Library.h
- *
- * 		Author: Mbeunzoueuh Gasparri
- * Revision by: Philipp Schmitt
- *
- */
+// Filename: Library.h
+// Creator: Montagnoni Thomas
+// Date: 23/12/2011
+// version: 0.1
 
 #ifndef _LIBRARY_H_INCLUDED_
 #define _LIBRARY_H_INCLUDED_
 
-#include "Project.h"
+#include "Project.h" //Héritage de Project
 #include "LibraryException.h"
 
-class Library: public Project {
-public:
-	Library(Identifier projectName);
-	virtual void generate(const string& workspaceDirectory);
+class Library: public Project { //hérite de project
+	private:
+		list<Module*> module_list;
+		Identifier name;
 };
 #endif

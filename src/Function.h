@@ -1,16 +1,18 @@
 //filename: Function.h
 //author: Rolf
+//revision by: Mathieu Morainville
 
-#ifndef _FUNCTION_H_INCLUDED
-#define _FUNCTION_H_INCLUDED
+#ifndef _FUNCTION_H_INCLUDED_
+#define _FUNCTION_H_INCLUDED_
 
 #include <iostream>
 #include <list>
 
-#include "Symbol.h"
-#include "Parameter.h"
+#include "Component.h"
+#include "Parameter.h" // inutile normalement
+#include "Identifier.h"
 
-class Function : public Symbol {
+class Function : public Component {
 
 	public:
 		/* Funktionsdeklarationen */
@@ -20,7 +22,8 @@ class Function : public Symbol {
 		/* Getters */
 		string getReturnType() const { return returnData.returnType; }
 		string getReturnTypeDescription() const { return returnData.returnTypeDescription; }
-		bool isStatic() const { return isPrivate(); }
+		//bool isStatic() const { return isPrivate(); }
+		bool isStatic() const { return (getVisibility() == PRIVATE); }
 		const Parameter& getParamAtIndex(const int index) const throw(const char*);
 		int numParams() const { return parameterList.size(); }
 		const std::list<Parameter>& getParameterList() const { return parameterList; }
@@ -45,8 +48,8 @@ class Function : public Symbol {
 		struct rd {
 			//fuer Initialisirungs-Liste von Function-Ctor
 			rd(const string& s1, const string& s2) : returnType(s1), returnTypeDescription(s2) {}
-			string returnTypeDescription;
 			string returnType;
+			string returnTypeDescription;
 		} returnData;
 		list<Parameter> parameterList;
 
@@ -55,6 +58,4 @@ class Function : public Symbol {
 		void writeSignatureAndReturnTypeTo(string& str) const;
 };
 
-
-
-#endif //_FUNCTION_H_INCLUDED
+#endif // _FUNCTION_H_INCLUDED_

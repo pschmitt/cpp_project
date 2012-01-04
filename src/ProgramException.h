@@ -1,24 +1,17 @@
-/*
- * ProgramException.h
- *
- * 		Author: Mbeunzoueuh Gasparri
- * Revision by: Philipp Schmitt
- *
- */
+// Filename: ProgramException.h
+// Creator: Montagnoni Thomas
+// Date: 26/12/2011
+// Version: 0.1
 
-#ifndef _PROGRAMMEXCEPTION_H_INCLUDED_
-#define _PROGRAMMEXCEPTION_H_INCLUDED_
-#include <iostream>
+#ifndef _PROGRAMEXCEPTION_H_INCLUDED_
+#define _PROGRAMEXCEPTION_H_INCLUDED_
 #include <string>
 
-#include"ProjectException.h"
-
 using namespace std;
-class ProgrammException: public ProjectException {
-public:
 
-	ProgramException() throw ();
-	virtual const string handlung() const throw ();
-
+class ProgramException {
+	public:
+		ProgramException() throw ();
+		virtual const string reason() const throw();
 };
 #endif
