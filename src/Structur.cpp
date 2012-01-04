@@ -33,20 +33,25 @@ using namespace std;
    Die Methode toString schreibt eine structur von der angegebne name und angegebne componenten.
  */
 void Structur::writeDeclarationTo(ostream& out) const {
-out << "typedef enum" << "\n" << "{\n";
+	out << "struct" << "\n" << "{\n";
     for(map<string, string>::const_iterator it = structurComponent.begin(); it != structurComponent.end(); ++it)
      {
-        out << "\t" << (*it).second<< " " << (*it).first <<"," << endl;       
+        out << "\t" << (*it).second<< " " << (*it).first <<";" << endl;       
      }
-     out<<"}"<< getName() <<";";
-    //cout << fichier.str() << endl;   
-}  
+     out<<"}"<< getName() <<";"; 
+}
 
 void Structur::writeDefinitionTo(ostream& out) const {
 	out << "noDefinition" << endl;
 }
 
-
-
-
-
+string Structur::toString()const
+{
+	string returnString="struct {";
+    for(map<string, string>::const_iterator it = structurComponent.begin(); it != structurComponent.end(); ++it)
+    {
+		returnString +=" "+(*it).second+" "+(*it).first+"; ";
+    }
+	returnString+="} "+getName()+";";
+	return returnString;
+}

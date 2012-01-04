@@ -16,9 +16,8 @@ class Structur : public Component
   void writeDefinitionTo(ostream& out) const;
   void writeDeclarationTo(ostream& out) const;
   map<string, string> structurComponent;
-  void addComponent(const string& name, const string& type);      
-
-  string toString() const;
+  void addComponent(const string& name, const string& type);
+  string toString()const;
 
 };
 #endif

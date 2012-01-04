@@ -16,6 +16,7 @@ public:
       map<string, string> enumeration;
       void writeDeclarationTo(ostream& out)const;
       void writeDefinitionTo(ostream& out)const;
+      string toString()const;
       ~Enumeration();
       
 };

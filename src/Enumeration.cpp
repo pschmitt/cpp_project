@@ -24,6 +24,17 @@ void Enumeration::writeDefinitionTo(ostream& out) const {
 	out << "noDefinition " << endl;
 }
 
+string Enumeration::toString()const
+{
+	string returnString="typedef enum {";
+    for(map<string, string>::const_iterator it = enumeration.begin(); it != enumeration.end(); ++it)
+    {
+		returnString +=" "+(*it).first+" = "+(*it).second+", ";
+    }
+	returnString+="} "+getName()+";";
+	return returnString;
+}
+
 string Enumeration::toUpper (const string& str) {
 	string myString(str);//schneller -> Kopierkonstruktor
 	int len = myString.length();
