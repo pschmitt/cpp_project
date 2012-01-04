@@ -10,9 +10,8 @@
 #include "LibraryException.h"
 
 class Library: public Project { //hérite de project
-	public:
-		Library(Identifier projectName);
-		const string& getDirectory(); //Get the Directory Name
-		virtual void generate(const boost::filesystem::path& destPath) throw (LibraryException);
+	private:
+		list<Module*> module_list;
+		Identifier name;
 };
 #endif

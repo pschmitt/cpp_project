@@ -11,10 +11,8 @@
 #include "Modul.h" //Include Modul car utilisé par Programm
 
 class Program : public Project { //Program hérite de projet
-	public:
-		Program(const Identifier& name);
-		virtual ~Program();
-		const string& getDirectory(); //Get the Directory Name
-		virtual void generate(const boost::filesystem::path& destPath) throw (ProgramException);
+	private:
+		list<Module*> module_list;
+		Identifier name;
 };
 #endif
