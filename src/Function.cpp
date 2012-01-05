@@ -114,7 +114,7 @@ string Function::writeDeclarationTo() const {
 
 
 //#define UNIT_TEST_FUNCTION
-//#ifdef UNIT_TEST_FUNCTION
+#ifdef UNIT_TEST_FUNCTION
 int main (int argc, char** argv) {
 	cout << "begin main unit test function ..." << endl;	
 	try {
@@ -208,4 +208,4 @@ int main (int argc, char** argv) {
 	
 	cout << "... end main unit test function" << endl;
 }
-//#endif
+#endif

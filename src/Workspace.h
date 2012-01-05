@@ -31,7 +31,7 @@ public:
 	string get_proj_list();
 	path get_ws_dir() const;
 private:
-	list<Project*> project_list;
+	list</* const */Project*> project_list;
 	Identifier ws_id;
 	path ws_dir;
 };
