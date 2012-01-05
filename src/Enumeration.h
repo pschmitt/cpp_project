@@ -2,7 +2,7 @@
 #ifndef ENUMERATION_H_INCLUDED
 #define ENUMERATION_H_INCLUDED
 
-#include "component.h"
+#include "Component.h"
 #include <iostream>
 #include <string>
 #include <map>
@@ -16,6 +16,6 @@ public:
       map<string, string> enumeration;
       string writeDeclarationTo()const;
       string writeDefinitionTo()const;
-      ~Enumeration();
+      virtual ~Enumeration();
 };
 #endif

@@ -39,6 +39,6 @@ Identifier Library::get_project_id() const {
 
 //Tostring for project informations
 ostream& operator<<(ostream& out, Project& project) {
-	out << project.get_project_id();
+	out << project.get_project_id().getName();
 	return out;
 }
