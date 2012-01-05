@@ -9,10 +9,13 @@
 #include "Project.h" //Include car il y'a un héritage
 #include "Identifier.h" //Include pour verifier la variable courante
 #include "Module.h" //Include Modul car utilisé par Programm
+#include <boost/filesystem.hpp>
+
+using namespace boost::filesystem;
 
 class Program : virtual public Project { //Program hérite de projet
 	public:
-		Program(const string& name, const string& description= "");
+		Program(const string& name, const string& description = "");
 		void add_module(Module& m);
 		void generate(const boost::filesystem::path& destPath) throw (ProjectException);
 		Identifier get_project_id() const;

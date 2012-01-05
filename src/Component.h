@@ -20,6 +20,7 @@ public:
        void setConst(bool newConst);
        virtual ~Component();
        virtual string writeDefinitionTo() const = 0;
+       virtual string writeDeclarationTo() const = 0;
 protected:
        Component(const string& name, Identifier::IdentifierType type, Visibility visibility = PUBLIC, bool isConst = false, const string& description = "");
 private:

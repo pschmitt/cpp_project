@@ -10,11 +10,11 @@ using namespace std;
 
 //Project got a name & a description
 Project::Project(const string& name, const string& description) :
-	project_id(name, description) {
+	project_id(name, Identifier::PROJECT, description) {
 }
 
 //Add a modul to a Project
-void Project::add_modul(Modul& m) {
+void Project::add_module(Module& m) {
 	modul_list.push_back(&m);
 }
 
