@@ -22,15 +22,14 @@ using namespace std;
 class Module {
 public:
 	Module(const string& _name, const string& _description = "");
+	Identifier get_module_id() const;
 	void add_component(const Component& comp);
 	void generate(const boost::filesystem::path& destPath) const;
-	Identifier get_module_id() const;
 private:
 	Identifier module_id;
 	list<const Component*> component_list;
-	void generate_c_file(const boost::filesystem::path& destPath) const;
 	void generate_h_file(const boost::filesystem::path& destPath) const;
-
+	void generate_c_file(const boost::filesystem::path& destPath) const;
 };
 
 #endif //_MODULE_H_INCLUDED_ 
