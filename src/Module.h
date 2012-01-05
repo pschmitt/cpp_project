@@ -11,10 +11,11 @@
 
 #include <list>
 #include <string>
+#include <fstream>
 #include <boost/algorithm/string.hpp>
+#include <boost/filesystem.hpp>
 #include "Identifier.h"
 #include "Component.h"
-#include <boost/filesystem.hpp>
 
 using namespace std;
 

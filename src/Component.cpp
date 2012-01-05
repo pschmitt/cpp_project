@@ -1,7 +1,7 @@
 /*filename: component.h
   author: clement Gorlt
 */
-#include "component.h"
+#include "Component.h"
 
 Component::Component(const string& name, Identifier::IdentifierType type, Visibility visibility, bool isConst, const string& description):identifier(name, type, description), isConst(isConst), visibility(visibility)
 {

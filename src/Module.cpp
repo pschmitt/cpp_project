@@ -8,7 +8,6 @@
  *
  */
 
-#include <fstream>
 #include "Module.h"
 
 Module::Module(const string& _name, const string& _description /* = "" */) :
@@ -33,7 +32,7 @@ void Module::generateCFile() const {
 
 	list<Component*>::iterator it;
 	for (it = component_list.begin(); it != component_list.end(); it++) // parcourt de la liste component
-		it->writeDefinitionTo(c_File);
+		c_File << it->writeDefinitionTo();//it->writeDefinitionTo(c_File);
 
 	c_File << "//#define UNIT_TEST_" << varmaj << endl;
 	c_File << "#ifdef UNIT_TEST_" << varmaj << endl;

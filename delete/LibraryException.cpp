@@ -5,7 +5,7 @@
 
 #include "LibraryException.h"
 
-LibraryException::LibraryException() throw() {};
+LibraryException::LibraryException() throw() {}
 
 const string LibraryException::reason() const throw() {
 	return "The Directory can't be created: he already exists";
