@@ -7,37 +7,38 @@
 using namespace std;
 
 //Project got a name & a description
-Library::Library(const string& name, const string& description) : project_id(name, description) { }
+Library::Library(const string& name, const string& description) : project_id(name, Identifier::PROJECT, description) { }
 
 //Add a modul to a Project
-void Program::add_module(Module& m) {
+void Library::add_module(Module& m) {
 	module_list.push_back(&m);
 }
 
 //Generate the directory for Library
-void Library::generate(const path& destpath) throw (LibraryException) {
-	if (!create_directory(destpath.project_id.getName())) {
+void Library::generate(const path& destpath) throw (ProjectException) {
+	list<Module*>::iterator it;
+	if (!create_directory(destpath / project_id.getName())) {
 		throw LibraryException();
 	}
-	String list_dir[] = { "test", "src", "build", "doc" };
-	int taille_list = list_dir.length();
+	string list_dir[4] = { "test", "src", "build", "doc" };
+	int taille_list = 4;
 	for (int i =0; i < taille_list; i++) {
-		create_directory(destpath + list_dir[i]);
+		create_directory(destpath / list_dir[i]);
 		if (module_list.size() != 0) {
 			for (it = module_list.begin(); it != module_list.end(); it++) {
-					(*it)->generate(destpath + list_dir[i]);
+					(*it)->generate(destpath / list_dir[i]);
 			}
 		}
 	}
 }
 
 //Get the Project informations
-Identifier Library::get_project() const {
+Identifier Library::get_project_id() const {
 	return project_id;
 }
 
 //Tostring for project informations
 ostream& operator<<(ostream& out, Project& project) {
-	out << project.get_project();
+	out << project.get_project_id();
 	return out;
 }

@@ -8,10 +8,7 @@
  *
  */
 
-#include <iostream>
 #include <fstream>
-#include <string>
-#include <cstring>
 #include "Module.h"
 
 Module::Module(const string& _name, const string& _description /* = "" */) :
@@ -22,51 +19,21 @@ Identifier Module::get_module_id() const {
 	return module_id;
 }
 
-// diese Methode liest was der User eingettipt hat
-// auskommentiert, weil identifier.setName/Description momentan nicht existiert
-/*
- void Module::readArgsFromUser () {
- string name;
- std::cout << "Bitte Modulname eingeben: ";
- std::cin >> name;
- module_id.setName(name);
- std::cout << "Bitte Beschreibung eingeben: ";
- std::cin >> name;
- module_id.setDescription(name);
-
- }
- */
-
-// TODO remove (unnötig)
-//Diese Methode schriebt  die Zeichen in großen Buchstaben
-void toUpper(const string& str, string& maj) {
-	//string myString(str);//schneller -> Kopierkonstruktor
-	maj = str;
-	int len = maj.length();
-	for (int i = 0; i < len; i++) { //oder str.length
-		if (maj[i] >= 'a' && maj[i] <= 'z') {
-			maj[i] = maj[i] + 'A' - 'a';
-		}
-	}
-	//return myString;
-}
-
 // diese Methode generiert de C File
-void Module::generateCFile() const { //ici erreur
-	string varmaj; // variable parametre
-	toUpper(module_id.getName(), varmaj);
+void Module::generateCFile() const {
+	string varmaj = module_id.getName(); // variable parametre
+	boost::to_upper(varmaj);
 
 	string name_c = module_id.getName();
 	name_c.append(".c");
 	std::ofstream c_File(name_c.c_str());
-	c_File << "/* filename: " << name_c << " */" << endl << endl
-			<< "#include \"" << module_id.getName() << ".h" << "\"" << endl
-			<< endl;
+	c_File << "// filename: " << name_c << endl << endl << "#include \""
+			<< module_id.getName() << ".h" << "\"" << endl << endl;
 	c_File << "/* Definitionen */" << endl;
 
-	// for ( it=component_list.begin() ; it != component_list.end(); it++ ){ // parcourt de la liste component
-	//it-> writeDefinitionTo(c_File);
-	//   }
+	list<Component*>::iterator it;
+	for (it = component_list.begin(); it != component_list.end(); it++) // parcourt de la liste component
+		it->writeDefinitionTo(c_File);
 
 	c_File << "//#define UNIT_TEST_" << varmaj << endl;
 	c_File << "#ifdef UNIT_TEST_" << varmaj << endl;
@@ -80,15 +47,16 @@ void Module::generateCFile() const { //ici erreur
 
 //diese Methode generiert de H file
 void Module::generateHFile() const {
-	string varmaj;
+	string varmaj = module_id.getName();
 	string descript = module_id.getDescription();
-	toUpper(module_id.getName(), varmaj);
+	boost::to_upper(varmaj);
 	string name_h = module_id.getName();
 	name_h.append(".h");
 	string sentrydefine = string("_") + varmaj + "_H_";
 	std::ofstream hFile(name_h.c_str());
-	hFile << "/* filename: " << name_h << " */" << endl << endl
-	//afficher la description ici
+	hFile << "/* filename: " << name_h << " */" << endl
+			<< endl
+			//afficher la description ici
 			<< "//" << descript << endl << endl << "#ifndef " << sentrydefine
 			<< endl << "#define " << sentrydefine << endl << endl
 			<< "/* Deklarationen */" << endl << endl;
@@ -101,14 +69,12 @@ void Module::generateHFile() const {
 	hFile << "#endif /* " << sentrydefine << " */" << endl;
 }
 
-// diese methode ruft hfli und cfile um die H-C file zu generieren
-void Module::generate() const {
+void Module::generate(const boost::filesystem::path& destPath) const {
 	generateHFile();
 	generateCFile();
 }
 
 void Module::addComponent(const Component& comp) {
 	component_list.push_back(&comp);
-	// TODO declarationen von Symbolen einf�gen
 }
 

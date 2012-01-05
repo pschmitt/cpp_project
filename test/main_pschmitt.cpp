@@ -10,7 +10,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/algorithm/string.hpp> // toUpper case !
 #include "Identifier.h"
-#include "Project.h"
+#include "Program.h"
 #include "Workspace.h"
 
 // using namespace boost::filesystem;
@@ -22,10 +22,10 @@ int main() {
 		boost::filesystem::remove_all("/tmp/Ws");
 
 		Workspace ws = Workspace("Ws", "/tmp");
-		Project p1 = Project("Proj");
-		Project p2 = Project("proj2");
-		Project p3 = Project("proj3");
-		Project p4 = Project("project4");
+		Program p1 = Program("Proj");
+		Program p2 = Program("proj2");
+		Program p3 = Program("proj3");
+		Program p4 = Program("project4");
 
 		ws.add_project(p1);
 		ws.add_project(p2);

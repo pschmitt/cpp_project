@@ -1,6 +1,6 @@
 //filename: enumeration.cpp
 #include "enumeration.h"
-Enumeration::Enumeration(const string& name): Component(name, Identifier::ENUM)
+Enumeration::Enumeration(const string& name, const string& _description): Component(name, Identifier::ENUM, Component::PUBLIC,false,_description)
 {
 }
 
@@ -10,23 +10,9 @@ void Enumeration::add(const string& name, const string& wert)
      enumeration.insert( map<string, string>::value_type( maj_name, wert) );
 }
 
-void Enumeration::writeDeclarationTo(ostream& out) const 
+string Enumeration::writeDeclarationTo() const 
 {
-    out << "typedef enum" << "\n" << "{\n";
-    for(map<string, string>::const_iterator it = enumeration.begin(); it != enumeration.end(); ++it)
-     {
-        out << "\t" << (*it).first << "=" << (*it).second << "," << endl;       
-     }
-     out << "}" << getName() << ";";
-}
-
-void Enumeration::writeDefinitionTo(ostream& out) const {
-	out << "noDefinition " << endl;
-}
-
-string Enumeration::toString()const
-{
-	string returnString="typedef enum {";
+    string returnString="typedef enum {";
     for(map<string, string>::const_iterator it = enumeration.begin(); it != enumeration.end(); ++it)
     {
 		returnString +=" "+(*it).first+" = "+(*it).second+", ";
@@ -34,6 +20,11 @@ string Enumeration::toString()const
 	returnString+="} "+getName()+";";
 	return returnString;
 }
+
+string Enumeration::writeDefinitionTo() const {
+	return "noDefinition";
+}
+
 
 string Enumeration::toUpper (const string& str) {
 	string myString(str);//schneller -> Kopierkonstruktor

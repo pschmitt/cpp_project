@@ -10,14 +10,12 @@ using std::string;
 class Enumeration : public Component
 {
 public:
-      Enumeration(const string& name);
+      Enumeration(const string& name, const string& _description);
       string toUpper(const string& str);
       void add(const string& name, const string& wert);
       map<string, string> enumeration;
-      void writeDeclarationTo(ostream& out)const;
-      void writeDefinitionTo(ostream& out)const;
-      string toString()const;
+      string writeDeclarationTo()const;
+      string writeDefinitionTo()const;
       ~Enumeration();
-      
 };
 #endif
