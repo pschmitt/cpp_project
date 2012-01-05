@@ -5,9 +5,11 @@
 
 #include "ProjectException.h"
 
-ProjectException::ProjectException() throw() {};
+ProjectException::ProjectException() throw() {
 
-const string ProjectException::reason() const throw() {
+}
+
+const string ProjectException::what() const throw() {
 	return "The Directory can't be created: he already exists";
 }
 

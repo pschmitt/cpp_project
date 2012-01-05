@@ -12,6 +12,6 @@ using namespace std;
 class ProjectException {
 	public:
 		ProjectException() throw ();
-		virtual const string reason() const throw();
+		virtual const string what() const throw();
 };
 #endif

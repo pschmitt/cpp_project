@@ -9,10 +9,12 @@
 #ifndef _MODULE_H_INCLUDED_
 #define _MODULE_H_INCLUDED_
 
-#include <string>
 #include <list>
+#include <string>
+#include <boost/algorithm/string.hpp>
 #include "Identifier.h"
 #include "Component.h"
+#include <boost/filesystem.hpp>
 
 using namespace std;
 
@@ -22,11 +24,9 @@ class Exception {
 class Module {
 public:
 	Module(const string& _name, const string& _description = "");
-	void readArgsFromUser();
 	void addComponent(const Component& comp);
-	void generate() const;
+	void generate(const boost::filesystem::path& destPath) const;
 	Identifier get_module_id() const;
-	// void  add_symbol()const;
 private:
 	Identifier module_id;
 	list<const Component*> component_list;

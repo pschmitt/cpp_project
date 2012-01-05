@@ -15,7 +15,7 @@ void Enumeration::writeDeclarationTo(ostream& out) const
     out << "typedef enum" << "\n" << "{\n";
     for(map<string, string>::const_iterator it = enumeration.begin(); it != enumeration.end(); ++it)
      {
-        out << "\t" << (*it).first << "=" << (*it).second << "," << endl;       
+        out << "\t" << (*it).first << "=" << (*it).second << "," << endl;
      }
      out << "}" << getName() << ";";
 }

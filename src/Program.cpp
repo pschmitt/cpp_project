@@ -29,7 +29,7 @@ void Project::generate(const path& destpath) throw (ProjectException) {
 }
 
 //Get the Project informations
-Identifier Program::get_project() const {
+Identifier Program::get_project_id() const {
 	return project_id;
 }
 

@@ -6,12 +6,21 @@
 #ifndef _LIBRARY_H_INCLUDED_
 #define _LIBRARY_H_INCLUDED_
 
-#include "Project.h" //Héritage de Project
+#include <boost/filesystem.hpp>
+#include "Project.h" //Hï¿½ritage de Project
 #include "LibraryException.h"
+#include <string>
 
-class Library: public Project { //hérite de project
+using namespace boost::filesystem;
+
+class Library: virtual public Project { //hï¿½rite de project
+	public:
+		Library(const string& name, const string& description= "");
+		void add_module(Module& m);
+		void generate(const path& destPath) throw (ProjectException);
+		Identifier get_project_id() const;
 	private:
 		list<Module*> module_list;
-		Identifier name;
+		Identifier project_id;
 };
 #endif
