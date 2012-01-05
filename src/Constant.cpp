@@ -1,6 +1,5 @@
 //filename: Constant.cpp
 // Author : Tenguemne Frantz
-
 #include "Object.h"
 #include "Constant.h"
 #include <string>

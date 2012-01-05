@@ -32,7 +32,7 @@ string Variable::writeDefinitionTo() const {
     return str;   
 }
 		    
-            
+   
 string Variable::writeDeclarationTo() const {
 	string str;
 	if(getVisibility() == Component::PUBLIC){

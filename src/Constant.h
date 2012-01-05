@@ -6,7 +6,6 @@
 
 #include "Object.h"
 #include <string>
-
 using namespace std;
  /*! \class Constant
    * \brief classe representant une constante
