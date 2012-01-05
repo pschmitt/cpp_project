@@ -13,11 +13,9 @@ using namespace std;
 class Structur : public Component
 {
   public: Structur(const string& nameStructur);
-  void writeDefinitionTo(ostream& out) const;
-  void writeDeclarationTo(ostream& out) const;
+  string writeDefinitionTo() const;
+  string writeDeclarationTo() const;
   map<string, string> structurComponent;
   void addComponent(const string& name, const string& type);
-  string toString()const;
-
 };
 #endif
