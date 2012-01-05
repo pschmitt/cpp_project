@@ -19,20 +19,23 @@ Identifier Module::get_module_id() const {
 }
 
 // diese Methode generiert de C File
-void Module::generateCFile() const {
+void Module::generateCFile(const boost::filesystem::path& destPath) const {
 	string varmaj = module_id.getName(); // variable parametre
 	boost::to_upper(varmaj);
+	string name_c = module_id.getName() + ".c";
+	boost::filesystem::path p = destPath / name_c;
 
-	string name_c = module_id.getName();
-	name_c.append(".c");
-	std::ofstream c_File(name_c.c_str());
+	std::ofstream c_File(p.string().c_str());
+
 	c_File << "// filename: " << name_c << endl << endl << "#include \""
 			<< module_id.getName() << ".h" << "\"" << endl << endl;
 	c_File << "/* Definitionen */" << endl;
 
-	list<Component*>::iterator it;
-	for (it = component_list.begin(); it != component_list.end(); it++) // parcourt de la liste component
-		c_File << it->writeDefinitionTo();//it->writeDefinitionTo(c_File);
+	list<const Component*>::const_iterator it;
+	if (component_list.size() != 0) {
+		for (it = component_list.begin(); it != component_list.end(); it++) // parcourt de la liste component
+			c_File << (*it)->writeDefinitionTo(); //it->writeDefinitionTo(c_File);
+	}
 
 	c_File << "//#define UNIT_TEST_" << varmaj << endl;
 	c_File << "#ifdef UNIT_TEST_" << varmaj << endl;
@@ -45,14 +48,18 @@ void Module::generateCFile() const {
 }
 
 //diese Methode generiert de H file
-void Module::generateHFile() const {
+void Module::generateHFile(const boost::filesystem::path& destPath) const {
+	string name_h = module_id.getName() + ".h";
+	boost::filesystem::path p = destPath / name_h;
+
 	string varmaj = module_id.getName();
-	string descript = module_id.getDescription();
 	boost::to_upper(varmaj);
-	string name_h = module_id.getName();
+	string descript = module_id.getDescription();
+
+	name_h.append(module_id.getName());
 	name_h.append(".h");
 	string sentrydefine = string("_") + varmaj + "_H_";
-	std::ofstream hFile(name_h.c_str());
+	std::ofstream hFile(p.string().c_str());
 	hFile << "/* filename: " << name_h << " */" << endl
 			<< endl
 			//afficher la description ici
@@ -62,15 +69,15 @@ void Module::generateHFile() const {
 
 	list<const Component*>::const_iterator it;
 	for (it = component_list.begin(); it != component_list.end(); it++) { // parcour de la liste component
-		//it->writeDeclarationTo(hFile);
+		hFile << (*it)->writeDeclarationTo();
 	}
 
 	hFile << "#endif /* " << sentrydefine << " */" << endl;
 }
 
 void Module::generate(const boost::filesystem::path& destPath) const {
-	generateHFile();
-	generateCFile();
+	generateHFile(destPath);
+	generateCFile(destPath);
 }
 
 void Module::addComponent(const Component& comp) {

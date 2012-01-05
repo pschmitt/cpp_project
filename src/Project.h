@@ -14,6 +14,7 @@
 #include <ProjectException.h>
 // Boost permet de rendre le code portable
 #include <boost/filesystem.hpp> 
+
 using namespace std;
 
 class Project {
@@ -23,7 +24,6 @@ public:
 	virtual void generate(const boost::filesystem::path& destPath)
 			throw (ProjectException) = 0;
 	virtual Identifier get_project_id() const = 0;
-};
 
-ostream& operator<<(ostream& out, Project& project);
+};
 #endif

@@ -6,7 +6,6 @@
 
 #include "Object.h"
 #include <string>
-
 using namespace std;
  /*! \class Constant
    * \brief classe representant une constante
@@ -30,7 +29,7 @@ class Constant: public Object{
 		 Visibility visibility = Component::PUBLIC
 		);
 		~Constant();
-		void writeDefinitionTo (ostream& out) const;
-		void writeDeclarationTo(ostream& out) const;
+		string writeDefinitionTo () const;
+		string writeDeclarationTo() const;
 };
 #endif //_CONSTANT_H_INCLUDED_

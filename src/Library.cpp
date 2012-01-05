@@ -17,16 +17,13 @@ void Library::add_module(Module& m) {
 //Generate the directory for Library
 void Library::generate(const path& destpath) throw (ProjectException) {
 	list<Module*>::iterator it;
-	if (!create_directory(destpath / project_id.getName())) {
-		throw LibraryException();
-	}
 	string list_dir[4] = { "test", "src", "build", "doc" };
 	int taille_list = 4;
 	for (int i =0; i < taille_list; i++) {
-		create_directory(destpath / list_dir[i]);
+		create_directories(destpath / project_id.getName() / list_dir[i]);
 		if (module_list.size() != 0) {
 			for (it = module_list.begin(); it != module_list.end(); it++) {
-					(*it)->generate(destpath / list_dir[i]);
+					(*it)->generate(destpath / project_id.getName() / list_dir[i]);
 			}
 		}
 	}
@@ -35,10 +32,4 @@ void Library::generate(const path& destpath) throw (ProjectException) {
 //Get the Project informations
 Identifier Library::get_project_id() const {
 	return project_id;
-}
-
-//Tostring for project informations
-ostream& operator<<(ostream& out, Project& project) {
-	out << project.get_project_id().getName();
-	return out;
 }

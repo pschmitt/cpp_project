@@ -18,8 +18,8 @@ class Object : public Component
 			  );
 			
 		virtual ~Object();      
-		virtual void writeDefinitionTo (ostream& out) const = 0;
-		virtual void writeDeclarationTo(ostream& out) const = 0;
+		virtual string writeDefinitionTo () const = 0;
+		virtual string writeDeclarationTo() const = 0;
 		const string& getValue() const;
 		const string& getTypeObject() const;	
 		//const string& toString() const;

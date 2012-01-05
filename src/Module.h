@@ -31,8 +31,8 @@ public:
 private:
 	Identifier module_id;
 	list<const Component*> component_list;
-	void generateCFile() const;
-	void generateHFile() const;
+	void generateCFile(const boost::filesystem::path& destPath) const;
+	void generateHFile(const boost::filesystem::path& destPath) const;
 
 };
 
