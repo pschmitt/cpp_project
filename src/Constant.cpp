@@ -13,38 +13,41 @@ Constant::Constant(const string& name, const string& typeObject, const string& v
 
 Constant::~Constant(){}
 
-void Constant::writeDefinitionTo(ostream& out) const {
-	
+string Constant::writeDefinitionTo() const {
+	string str;
 	if(getVisibility() == Component::PRIVATE){
-		out << "static const " << typeObject << " " << getName();
+		str += "static const " + typeObject + " " + getName();
 		if(!value.empty()){
-			out << " = " << value;
+			str += " = " + value;
 		}
-		out << ";" << endl; 
+		str += ";\n"; 
 	}
-       
+    return str;   
 }
 		    
             
-void Constant::writeDeclarationTo(ostream& out) const {
+string Constant::writeDeclarationTo() const {
+	string str;
 	if(getVisibility() == Component::PUBLIC){
-		out << "static const " << typeObject << " " << getName();
+		str += "static const " + typeObject + " " + getName();
 		if(!value.empty()){
-			out << " = " << value; 
+			str += " = " + value; 
 		}
-		out << ";" << endl; 
+		str += ";\n"; 
 	}
+	return str;
 }
-/*  main pour tester la classe Constant
+/*  main pour tester la classe Constant */
+/*
 int main(){
 	cout << "Begin main.." << endl << endl;
 	try{
 		Constant v1("KONST", "int", "2"); 
 		cout << "Test 01 Konstante OK" << endl;
 		cout << "declaration " << endl;
-		v1.writeDeclarationTo(cout);
+		cout << v1.writeDeclarationTo();
 		cout << "definition " << endl;
-		v1.writeDefinitionTo(cout);
+		cout << v1.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Test 01 Error:" << s << endl;
@@ -53,9 +56,9 @@ int main(){
 		Constant v2("AUSGABE", "string", "\"Hallo!\"", Component::PRIVATE);
 		cout << "Test 02 Konstante OK" << endl;
 		cout << "declaration " << endl;
-		v2.writeDeclarationTo(cout);
+		cout << v2.writeDeclarationTo();
 		cout << "definition " << endl;
-		v2.writeDefinitionTo(cout);
+		cout << v2.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Test 02 Error: " << s << endl;
@@ -64,9 +67,9 @@ int main(){
 		Constant v3("SIZe", "int", "10");
 		cout << "Test 03 Konstante OK" << endl;
 		cout << "declaration " << endl;
-		v3.writeDeclarationTo(cout);
+		cout << v3.writeDeclarationTo();
 		cout << "definition " << endl;
-		v3.writeDefinitionTo(cout);
+		cout << v3.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Test 03 Error: " << s << endl;
@@ -75,9 +78,9 @@ int main(){
 		Constant v4("ECHT", "boolean", "true", Component::PUBLIC);
 		cout << "Test 04 Konstante OK" << endl;
 		cout << "declaration " << endl;
-		v4.writeDeclarationTo(cout);
+		cout << v4.writeDeclarationTo();
 		cout << "definition " << endl;
-		v4.writeDefinitionTo(cout);
+		cout << v4.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Test 04 Error: " << s << endl;
@@ -87,9 +90,9 @@ int main(){
 		Constant v5("INTERN", "int", "3", Component::PRIVATE);
 		cout << "Test 05 Konstante OK" << endl;
 		cout << "declaration " << endl;
-		v5.writeDeclarationTo(cout);
+		cout << v5.writeDeclarationTo();
 		cout << "definition " << endl;
-		v5.writeDefinitionTo(cout);
+		cout << v5.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Test 05 Error: " << s << endl;
@@ -98,4 +101,3 @@ int main(){
 	
 	return 0;
 } // end main
-*/

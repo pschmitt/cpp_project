@@ -30,7 +30,7 @@ class Constant: public Object{
 		 Visibility visibility = Component::PUBLIC
 		);
 		~Constant();
-		void writeDefinitionTo (ostream& out) const;
-		void writeDeclarationTo(ostream& out) const;
+		string writeDefinitionTo () const;
+		string writeDeclarationTo() const;
 };
 #endif //_CONSTANT_H_INCLUDED_

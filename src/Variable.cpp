@@ -13,40 +13,42 @@ Variable::Variable(const string& name, const string& typeObject, const string& v
 
 Variable::~Variable(){}
 
-void Variable::writeDefinitionTo(ostream& out) const {
-	
+string Variable::writeDefinitionTo() const {
+	string str;
 	if(getVisibility() == Component::PUBLIC){
 		if(!value.empty())
-			out << typeObject << " " << getName() << " = " << value << ";" << endl; 
+			str += typeObject + " " + getName() + " = " + value + ";" + "\n"; 
 		else
-			out << typeObject << " " << getName() << ";" << endl; 
+			str += typeObject + " " + getName() + ";" + "\n"; 
 	}
 	else{
 		if(getVisibility() == Component::PRIVATE){
 			if(!value.empty())
-				out << "static " << typeObject << " " << getName() << " = " << value << ";" << endl; //ecrire une methode toString() pour afficher un object selon quil a le champ value="" ou non
+				str += "static " + typeObject + " " + getName() + " = " + value + ";" + "\n";
 			else
-				out << "static " << typeObject << " " << getName() << ";" << endl; //ecrire une methode toString() pour afficher un object selon quil a le champ value="" ou non
+				str += "static " + typeObject + " " + getName() + ";" + "\n";
 		}
 	}
-       
+    return str;   
 }
 		    
             
-void Variable::writeDeclarationTo(ostream& out) const {
-	
+string Variable::writeDeclarationTo() const {
+	string str;
 	if(getVisibility() == Component::PUBLIC){
-		out << "extern " << typeObject << " " << getName() << ";" << endl;
+		str += "extern " + typeObject + " " + getName() + ";\n";
 	}
+	return str;
 }
-/* main pour tester la classe Variable
+/* main pour tester la classe Variable */
+/*
 int main(){
 	cout << "Begin main.." << endl << endl;
 	try{
 		cout << "global variable v1 definition "<<endl;
 		Variable v1("global", "int", "0"); 
-		v1.writeDeclarationTo(cout);
-		v1.writeDefinitionTo(cout);
+		cout << v1.writeDeclarationTo();
+		cout << v1.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Error " << s << endl;
@@ -54,8 +56,8 @@ int main(){
 	try{
 		Variable v3("intern", "int", "1", Component::PRIVATE);
 		cout << "static variable v3 declaration" << endl;
-		v3.writeDeclarationTo(cout);
-		v3.writeDefinitionTo(cout);
+		cout << v3.writeDeclarationTo();
+		cout << v3.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Error " << s << endl;
@@ -63,8 +65,8 @@ int main(){
 	try{
 		cout << "global variable v5 definition avec erreur" << endl;
 		Variable v5("Global", "int", "0");
-		v5.writeDeclarationTo(cout);
-		v5.writeDefinitionTo(cout);
+		cout << v5.writeDeclarationTo();
+		cout << v5.writeDefinitionTo();
 	}
 	catch(std::string s){
 		cout << "Error " << s << endl;
