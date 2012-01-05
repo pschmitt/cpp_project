@@ -24,7 +24,7 @@ void Function::addParameter(const Parameter& p, int pos /*= 0*/) {
 		}
 		parameterList.insert(it, p);
 	} else {
-		parameterList.push_back(p); //kopiert ...
+		parameterList.push_back(p); //kopiert...
 	}
 }
 
@@ -69,87 +69,52 @@ void Function::setReturnType(const string& returnType, const string& _text /*= "
 }
 
 /*
-Schreibt die Funktionssignatur und den Rueckgabewert in den Stream.
+Schreibt die Funktionssignatur und den Rueckgabewert.
 writeSignatureAndReturnTypeTo() ist nur eine Hilfsfunktion um die eigentliche
 Funktionsdefinition bzw. Funktionsdeklaration zu erstellen.
 */
-void Function::writeSignatureAndReturnTypeTo(ostream& out) const {
-	out << returnData.returnType;
-	out << ' ' << getName();
-	out << "(";
-	// for (list<Parameter>::const_iterator it = parameterList.begin(); it != parameterList.end(); it++) {
-		// out << it->getType() << ' ' << it->getName();
-	// }
+string Function::writeSignatureAndReturnTypeTo() const {
+	string returnString = returnData.returnType + " " + getName() + "(";
+	
 	list<Parameter>::const_iterator it = parameterList.begin();
 	if (parameterList.size() != 0) {
 		do {
-			out << it->getType() << ' ' << it->getName();
+			returnString += it->getType() + ' ' + it->getName();
 			it++;
 			if (it != parameterList.end()) {
-				out << ", ";
+				returnString += ", ";
 			}
 		} while (it != parameterList.end());
 	}
-	//letztes Komma rausschmeissen (hoffentlich besser als if-Konditition in der Schleife ?)
-	// if (numParams() != 0) {
-		// long pos = out.tellp();
-		// out.seekp(pos - 2);
-	// }
 	
-	out << ")";	
-	if (getConst() == true) { out << " const"; } //if (isConst()) { out << " const"; }
+	returnString += ")";	
+	if (getConst() == true) { returnString += " const"; }
+	
+	return returnString;
 }
 
 /*
-Schreibt die Funktionsdefinition (.c) in den Stream
+Schreibt die Funktionsdefinition (.c)
 */
-void Function::writeDefinitionTo(ostream& out) const {
-	writeSignatureAndReturnTypeTo(out);
-	out << endl << '{' << endl << endl << '}' << endl;
+string Function::writeDefinitionTo() const {
+	string returnString = writeSignatureAndReturnTypeTo();
+	returnString += "\n{\n\n}\n";
+	return returnString;
 }
 
 /*
-Schreibt die Funktionsdeklaration (.h) in den Stream
-Fragt sich noch, wie reagiert werden soll, wenn die Funktion nicht oeffentlich ist
+Schreibt die Funktionsdeklaration (.h)
 */
-void Function::writeDeclarationTo(ostream& out) const {
-	/*if (isPrivate()) {
-		//exception ??
-		//hier stimmt auch etwas nicht, wenn man nichts in den stream schreibt, dann gibt's Probleme
-		out << "// " << getName() << "() is private" << endl;
-	} else {*/
-		writeSignatureAndReturnTypeTo(out);
-		out << ";" << endl;
-	//}
+string Function::writeDeclarationTo() const {
+	string returnString = writeSignatureAndReturnTypeTo();
+	returnString += ";\n";
+	return returnString;
 }
-
-/* convenience */
-void Function::writeSignatureAndReturnTypeTo(string& str) const {
-	stringstream ss;
-	writeSignatureAndReturnTypeTo(ss);
-	str = ss.str();
-}
-
-/* convenience */
-void Function::writeDefinitionTo(string& str) const {
-	stringstream ss;
-	writeDefinitionTo(ss);
-	str = ss.str();
-}
-
-/* convenience */
-void Function::writeDeclarationTo(string& str) const {
-	stringstream ss;
-	writeDeclarationTo(ss);
-	str = ss.str();
-}
-
-
 
 
 
 //#define UNIT_TEST_FUNCTION
-#ifdef UNIT_TEST_FUNCTION
+//#ifdef UNIT_TEST_FUNCTION
 int main (int argc, char** argv) {
 	cout << "begin main unit test function ..." << endl;	
 	try {
@@ -168,8 +133,8 @@ int main (int argc, char** argv) {
 		f2.addParameter(p2);
 		f2.addParameter(p3);
 		
-		f1.writeDefinitionTo(cout);
-		f2.writeDefinitionTo(cout);
+		cout << f1.writeDefinitionTo();
+		cout << f2.writeDefinitionTo();
 	
 		// TEST01
 		f1.setConst(true);
@@ -243,4 +208,4 @@ int main (int argc, char** argv) {
 	
 	cout << "... end main unit test function" << endl;
 }
-#endif
+//#endif

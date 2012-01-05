@@ -7,10 +7,10 @@
 
 #include <iostream>
 #include <list>
+#include <string>
 
 #include "Component.h"
-#include "Parameter.h" // inutile normalement
-#include "Identifier.h"
+#include "Parameter.h"
 
 class Function : public Component {
 
@@ -22,26 +22,21 @@ class Function : public Component {
 		/* Getters */
 		string getReturnType() const { return returnData.returnType; }
 		string getReturnTypeDescription() const { return returnData.returnTypeDescription; }
-		//bool isStatic() const { return isPrivate(); }
 		bool isStatic() const { return (getVisibility() == PRIVATE); }
 		const Parameter& getParamAtIndex(const int index) const throw(const char*);
 		int numParams() const { return parameterList.size(); }
 		const std::list<Parameter>& getParameterList() const { return parameterList; }
 
 		/* Parameter */
-		void addParameter(const Parameter& p, int pos = 0);//Pos. atm nicht eingebaut
+		void addParameter(const Parameter& p, int pos = 0);
 		void addParameter(const string& _identifier, const string& _type, const string& _description = "");
 		
 		/* Setters */
 		void setReturnType(const string& returnType, const string& _text = "") throw (const char*);
-
-		/* Ausgabe */
-		void writeDefinitionTo(ostream& out) const;
-		void writeDeclarationTo(ostream& out) const;
 		
-		/* fuer den Fall der Faelle - convenience */
-		void writeDefinitionTo(string& str) const;
-		void writeDeclarationTo(string& str) const;
+		/* toString() Methoden */
+		string writeDefinitionTo() const;
+		string writeDeclarationTo() const;
 	
 	private:
 		/* private Variablen */
@@ -54,8 +49,7 @@ class Function : public Component {
 		list<Parameter> parameterList;
 
 		/* private Funktionen */	
-		void writeSignatureAndReturnTypeTo(ostream& out) const;
-		void writeSignatureAndReturnTypeTo(string& str) const;
+		string writeSignatureAndReturnTypeTo() const;
 };
 
 #endif // _FUNCTION_H_INCLUDED_
