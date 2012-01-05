@@ -25,6 +25,7 @@ int main() {
 		// clean up !
 		boost::filesystem::remove_all("/tmp/Ws");
 
+		// instanciate a WS, some Programs, Libraries etc.
 		Workspace ws = Workspace("Ws", "/tmp");
 		Program p1 = Program("Proj");
 		Program p2 = Program("proj2");
@@ -36,9 +37,10 @@ int main() {
 		Module m2 = Module("m2");
 		Variable v1 = Variable("v1", "int");
 		Function f1 = Function("f1", "description");
-		m1.addComponent(v1);
-		m1.addComponent(f1);
 
+		// Mix them together
+		m1.add_component(v1);
+		m1.add_component(f1);
 		p1.add_module(m1);
 		p1.add_module(m2);
 		ws.add_project(p1);
@@ -47,7 +49,11 @@ int main() {
 		ws.add_project(p4);
 		ws.add_project(lib1);
 		ws.add_project(lib2);
+
+		// look at em
 		cout << ws << endl << endl;
+
+		// Crete the WS
 		ws.generate();
 	} catch (ProjectException& err) {
 		cout << err.what() << endl;

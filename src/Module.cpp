@@ -18,12 +18,26 @@ Identifier Module::get_module_id() const {
 	return module_id;
 }
 
-// diese Methode generiert de C File
-void Module::generateCFile(const boost::filesystem::path& destPath) const {
+/**
+ * generate
+ *
+ * @param dest_path - Path where file is going to be created
+ */
+void Module::generate(const boost::filesystem::path& dest_path) const {
+	generate_h_file(dest_path);
+	generate_c_file(dest_path);
+}
+
+/**
+ * generate_c_file - Generates the C file
+ *
+ * @param dest_path - Path where file is going to be created
+ */
+void Module::generate_c_file(const boost::filesystem::path& dest_path) const {
 	string varmaj = module_id.getName(); // variable parametre
-	boost::to_upper(varmaj);
+	boost::to_upper(varmaj); // transform  to UC
 	string name_c = module_id.getName() + ".c";
-	boost::filesystem::path p = destPath / name_c;
+	boost::filesystem::path p = dest_path / name_c;
 
 	std::ofstream c_File(p.string().c_str());
 
@@ -47,10 +61,14 @@ void Module::generateCFile(const boost::filesystem::path& destPath) const {
 	c_File << "#endif" << endl;
 }
 
-//diese Methode generiert de H file
-void Module::generateHFile(const boost::filesystem::path& destPath) const {
+/**
+ * generate_h_file - Generates the C file
+ *
+ * @param dest_path - Path where file is going to be created
+ */
+void Module::generate_h_file(const boost::filesystem::path& dest_path) const {
 	string name_h = module_id.getName() + ".h";
-	boost::filesystem::path p = destPath / name_h;
+	boost::filesystem::path p = dest_path / name_h;
 
 	string varmaj = module_id.getName();
 	boost::to_upper(varmaj);
@@ -60,7 +78,7 @@ void Module::generateHFile(const boost::filesystem::path& destPath) const {
 	name_h.append(".h");
 	string sentrydefine = string("_") + varmaj + "_H_";
 	std::ofstream hFile(p.string().c_str());
-	hFile << "/* filename: " << name_h << " */" << endl
+	hFile << "// filename: " << name_h << endl
 			<< endl
 			//afficher la description ici
 			<< "//" << descript << endl << endl << "#ifndef " << sentrydefine
@@ -75,12 +93,12 @@ void Module::generateHFile(const boost::filesystem::path& destPath) const {
 	hFile << "#endif /* " << sentrydefine << " */" << endl;
 }
 
-void Module::generate(const boost::filesystem::path& destPath) const {
-	generateHFile(destPath);
-	generateCFile(destPath);
-}
-
-void Module::addComponent(const Component& comp) {
+/**
+ * add_component()
+ *
+ * @param comp Component to add
+ */
+void Module::add_component(const Component& comp) {
 	component_list.push_back(&comp);
 }
 

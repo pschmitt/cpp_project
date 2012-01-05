@@ -20,7 +20,6 @@
 using std::string;
 using namespace boost::filesystem;
 
-// TODO exception hierarchy
 class Workspace {
 public:
 	Workspace(const string& _ws_name, const path& _ws_dir = current_path(),

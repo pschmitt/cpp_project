@@ -19,20 +19,17 @@
 
 using namespace std;
 
-class Exception {
-};
-
 class Module {
 public:
 	Module(const string& _name, const string& _description = "");
-	void addComponent(const Component& comp);
+	void add_component(const Component& comp);
 	void generate(const boost::filesystem::path& destPath) const;
 	Identifier get_module_id() const;
 private:
 	Identifier module_id;
 	list<const Component*> component_list;
-	void generateCFile(const boost::filesystem::path& destPath) const;
-	void generateHFile(const boost::filesystem::path& destPath) const;
+	void generate_c_file(const boost::filesystem::path& destPath) const;
+	void generate_h_file(const boost::filesystem::path& destPath) const;
 
 };
 
