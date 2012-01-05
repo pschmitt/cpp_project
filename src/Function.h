@@ -36,8 +36,8 @@ class Function : public Component {
 		void setReturnType(const string& returnType, const string& _text = "") throw (const char*);
 
 		/* Ausgabe */
-		void writeDefinitionTo(ostream& out) const;
-		void writeDeclarationTo(ostream& out) const;
+		string writeDefinitionTo() const;
+		string writeDeclarationTo() const;
 		
 		/* fuer den Fall der Faelle - convenience */
 		void writeDefinitionTo(string& str) const;

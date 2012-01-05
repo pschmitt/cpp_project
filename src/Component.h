@@ -26,6 +26,6 @@ protected:
 private:
         Identifier identifier;
 		bool isConst;
-        Visibility visibility;
+        Visibility visibility;//allow the extension to c++ code source generator
 };
 #endif
