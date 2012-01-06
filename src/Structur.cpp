@@ -43,6 +43,6 @@ string Structur::writeDeclarationTo() const {
 }
 
 string Structur::writeDefinitionTo() const {
-	return "noDefinition";
+	return "";
 }
 

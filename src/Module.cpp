@@ -58,8 +58,6 @@ void Module::generate_h_file(const boost::filesystem::path& dest_path) const {
 	boost::to_upper(varmaj);
 	string description = module_id.getDescription();
 
-	filename.append(module_id.getName());
-	filename.append(".h");
 	string sentrydefine = string("_") + varmaj + "_H_";
 	std::ofstream hFile(p.string().c_str());
 	hFile << "// filename: " << filename << endl << endl

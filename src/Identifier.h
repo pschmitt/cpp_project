@@ -1,5 +1,6 @@
 // Filename Identifier.h;
 // Auteur : LENHOF K�vin
+// Frantz Koagne Tenguemne
 #ifndef _IDENTIFIER_H_INCLUDED_
 #define _IDENTIFIER_H_INCLUDED_
 

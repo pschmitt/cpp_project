@@ -1,4 +1,5 @@
 //filename: enumeration.cpp
+// Clément Gorlt
 #include "Enumeration.h"
 Enumeration::Enumeration(const string& name, const string& _description): Component(name, Identifier::ENUM, Component::PUBLIC,false,_description)
 {
